@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttons, { Boton } from "./Buttons";
+import Buttons from "./Buttons";
 import './styles/boton.css'
 
 
@@ -27,7 +27,7 @@ function Register(){
       <div className="cajamayor">
         <div className="cajaizquierda">
           <div className="img">
-            <img src="/Logo bueno edicion final.png" alt="Logo" width="500vh" />
+            <img src="/Logo bueno edicion final.png" alt="Logo"/>
           </div>
           <p>Brindando a nuestros mayores, la atención que tanto merecen</p>
         </div>

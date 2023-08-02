@@ -10,7 +10,6 @@ function Login() {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Inicia Sesion</title>
-        <link rel="stylesheet" href="./estilos/register.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
@@ -22,7 +21,7 @@ function Login() {
         <div className="cajamayor">
           <div className="cajaizquierda">
             <div className="img">
-            <img src="/Logo bueno edicion final.png" alt="Logo" width="500vh" />
+            <img src="/Logo bueno edicion final.png" alt="Logo"/>
             </div>
             <p>Brindando a nuestros mayores, la atención que tanto merecen</p>
           </div>
