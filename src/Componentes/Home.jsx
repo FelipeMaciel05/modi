@@ -23,7 +23,7 @@ function Home() {
                 <a href="#">Pagina de Inicio</a>
               </div>
               <div className="item">
-                <p>Unirse/Crear grupo</p>
+                <a href="#grupo">Unirse/Crear grupo</a>
               </div>
               <div className="item">
                 <p>Sobre Nosotros</p>
@@ -38,12 +38,12 @@ function Home() {
             <div className="contenedor">
               <p>MODI</p>
               <p className="a">Tu salud en casa, nuestro compromiso constante</p>
-              <button>Comenzar Ahora</button>
+              <a href="#grupo"><button>Comenzar Ahora</button></a>
             </div>
           </div>
         </div>
-        <div className="grupos">
-          
+        <div className="grupos" id="grupo">
+          <p>Unirse/Crear grupo</p>
         </div>
       </body>
     </html>
