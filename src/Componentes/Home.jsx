@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/home.css'
 
+
 function Home() {
+
+  const observer = new IntersectionObserver(entries =>{
+    entries.forEach(entry =>{
+      if(entry.isIntersecting){
+        document.querySelectorAll(".texto")[0].classList.add("fadeInUp")
+      }
+    })
+  }) 
+
+  useEffect(() => {
+    let grupos = document.querySelector(".grupos");
+    if(grupos)
+      observer.observe(document.querySelector(".grupos"));
+  }, [])
+
   return(
     <html lang="en">
       <head>
@@ -43,7 +59,9 @@ function Home() {
           </div>
         </div>
         <div className="grupos" id="grupo">
-          <p>Unirse/Crear grupo</p>
+          <div className="texto">
+            <p>Unirse/Crear grupo</p>
+          </div>
         </div>
       </body>
     </html>
