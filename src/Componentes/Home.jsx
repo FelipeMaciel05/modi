@@ -3,7 +3,6 @@ import './styles/home.css'
 
 
 function Home() {
-<<<<<<< HEAD
 
   const observer = new IntersectionObserver(entries =>{
     entries.forEach(entry =>{
@@ -18,7 +17,6 @@ function Home() {
     if(grupos)
       observer.observe(document.querySelector(".grupos"));
   }, [])
-=======
   function probarFetch(){
     
 // document.getElementById("registro").addEventListener("submit", function(event) {
@@ -72,8 +70,6 @@ function Home() {
 
 
   }
->>>>>>> b4b68eb4740fc77a3d0cf67ca6bedab930eac3bb
-
   return(
     <html lang="en">
       <head>
@@ -119,7 +115,7 @@ function Home() {
             <p>Unirse/Crear grupo</p>
           </div>
         </div>
-        <button onClick={probarFetch}>Probar</button>
+        {/*<button onClick={probarFetch}>Probar</button>*/}
       </body>
     </html>
   );
