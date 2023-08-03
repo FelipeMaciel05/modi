@@ -77,3 +77,18 @@ html{
 .grupos .texto{
     font-size: 6vh;
 }
+@keyframes fadeInUpAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Aplicamos la animación al elemento que tiene la clase 'fade-in-up' */
+  .fade-in-up {
+    animation: fadeInUpAnimation 1s ease;
+  }

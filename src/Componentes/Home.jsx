@@ -1,23 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/home.css'
 
 
 function Home() {
 
-  const observer = new IntersectionObserver(entries =>{
-    entries.forEach(entry =>{
-      if(entry.isIntersecting){
-        document.querySelectorAll(".texto")[0].classList.add("fadeInUp")
-      }
-    })
-  }) 
+  const [fadeInUp, setFadeInUp] = useState(false);
 
   useEffect(() => {
-    let grupos = document.querySelector(".grupos");
-    if(grupos)
-      observer.observe(document.querySelector(".grupos"));
-  }, [])
-  function probarFetch(){
+    const handleScroll = () => {
+      const element = document.querySelector('.texto');
+      if (element) {
+        const distanceFromTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (distanceFromTop - windowHeight <= 0) {
+          // Si el elemento está cerca del borde inferior de la ventana, activamos el efecto.
+          setFadeInUp(true);
+        } else if (distanceFromTop - windowHeight > 0) {
+          // Si el elemento no está visible, restablecemos el estado a `false`.
+          setFadeInUp(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  //function probarFetch(){
     
 // document.getElementById("registro").addEventListener("submit", function(event) {
   // event.preventDefault(); // Evitar el envío del formulario por defecto
@@ -36,8 +49,8 @@ function Home() {
       password: password,
       confirmarPassword: confirmarPassword,
       rol: rol
-  };*/
-  var pruebaD = {
+  };
+ var pruebaD = {
     nombre: "juan",
     usuario: "jmm",
     password: 123,
@@ -66,10 +79,10 @@ function Home() {
   .catch(function(error) {
       // Manejar cualquier error de conexión u otro tipo de error
   });
-// });
+// });*/
 
 
-  }
+  //}
   return(
     <html lang="en">
       <head>
@@ -88,7 +101,7 @@ function Home() {
                 <img src="/Logo bueno edicion final.png" alt="Logo"/>
               </div>
               <div className="item">
-                <a href="#">Pagina de Inicio</a>
+                <a href="/Home">Pagina de Inicio</a>
               </div>
               <div className="item">
                 <a href="#grupo">Unirse/Crear grupo</a>
@@ -110,8 +123,8 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="grupos" id="grupo">
-          <div className="texto">
+        <div className={`grupos ${fadeInUp ? 'fade-in-up' : ''}`} id="grupo">
+          <div className={`texto ${fadeInUp ? 'fade-in-up' : ''}`}>
             <p>Unirse/Crear grupo</p>
           </div>
         </div>
