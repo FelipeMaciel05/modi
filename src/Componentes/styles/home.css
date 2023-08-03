@@ -1,0 +1,75 @@
+body{
+    font-family: 'Inter', sans-serif;
+    font-family: 'REM', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.home .fondo p{
+    color: white;
+    font-size: 10vh;
+    font-weight: 600;
+}
+.home .fondo .a{
+    font-size: 3vh;
+}
+.home .fondo{
+    width: 100%;
+    height: 88vh;
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(/public/fondo\ pagina\ inicio\ proyecto.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home .fondo .contenedor{
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+.home .fondo .contenedor button{
+    width: 35vh;
+    font-size: 2.8vh;
+    height: 6vh;
+    font-weight: 700;
+    background: transparent;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-family: 'REM', sans-serif;
+    margin-top: 5vh;
+    border-color: white;
+    border-radius: .5vh;
+}
+.home .fondo .contenedor button:hover {
+    scale: 1.1;
+    cursor: pointer; 
+    transition: .3s;
+}
+.caja{
+    width: 100%;
+    height: 12vh;
+    background-color: #CCE5E7;
+}
+.logo img{
+    width: 60vh;
+}
+.profile img{
+    width: 10vh;
+}
+.caja{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.caja .item{
+    font-size: 2.8vh;
+}
+.grupos{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #CCE5E7;
+}

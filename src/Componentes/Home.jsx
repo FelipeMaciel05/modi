@@ -1,6 +1,5 @@
 import React from 'react';
-import Buttons, { Boton } from "./Buttons";
-import './styles/boton.css'
+import './styles/home.css'
 
 function Home() {
   function probarFetch(){
@@ -63,20 +62,42 @@ function Home() {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Inicia Sesion</title>
-        <link rel="stylesheet" href="./estilos/register.css" />
+        <title>MODI</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <div>
-            <h1>Bienvenido a Modi</h1>
-            <button><a href="/Register">Register</a></button>
-            <button><a href="/Login">Log in</a></button>
+        <header>
+          <div className="caja">
+              <div className="logo">
+                <img src="/Logo bueno edicion final.png" alt="Logo"/>
+              </div>
+              <div className="item">
+                <a href="#">Pagina de Inicio</a>
+              </div>
+              <div className="item">
+                <a href="#grupo">Unirse/Crear grupo</a>
+              </div>
+              <div className="item">
+                <p>Sobre Nosotros</p>
+              </div>
+              <div className="profile">
+                <img src="/profile.png" alt="Perfil"/>
+              </div>
+          </div>
+        </header>
+        <div className="home">
+          <div className="fondo">
+            <div className="contenedor">
+              <p>MODI</p>
+              <p className="a">Tu salud en casa, nuestro compromiso constante</p>
+              <a href="#grupo"><button>Comenzar Ahora</button></a>
+            </div>
+          </div>
+        </div>
+        <div className="grupos" id="grupo">
+          <p>Unirse/Crear grupo</p>
         </div>
         <button onClick={probarFetch}>Probar</button>
       </body>
