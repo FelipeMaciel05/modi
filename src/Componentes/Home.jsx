@@ -3,6 +3,7 @@ import './styles/home.css'
 
 
 function Home() {
+<<<<<<< HEAD
 
   const observer = new IntersectionObserver(entries =>{
     entries.forEach(entry =>{
@@ -17,6 +18,61 @@ function Home() {
     if(grupos)
       observer.observe(document.querySelector(".grupos"));
   }, [])
+=======
+  function probarFetch(){
+    
+// document.getElementById("registro").addEventListener("submit", function(event) {
+  // event.preventDefault(); // Evitar el envío del formulario por defecto
+
+  /*// Obtener los valores de los campos del formulario
+  var nombre = document.getElementById("name").value;
+  var usuario = document.getElementById("usuario").value;
+  var password = document.getElementById("password").value;
+  var confirmarPassword = document.getElementById("confirmarpassword").value;
+  var rol = document.getElementById("rol").value;
+
+  // Crear un objeto con los datos a enviar al backend
+  var data = {
+      nombre: nombre,
+      usuario: usuario,
+      password: password,
+      confirmarPassword: confirmarPassword,
+      rol: rol
+  };*/
+  var pruebaD = {
+    nombre: "juan",
+    usuario: "jmm",
+    password: 123,
+    confirmarPassword: 123,
+    rol: "usuario"
+};
+
+  // Enviar los datos al backend utilizando AJAX o Fetch
+  fetch('http://localhost:9000/api/CrearUsuario', {
+      method: "POST",
+      body: JSON.stringify(pruebaD),
+      headers: {
+          "Content-Type": "application/json"
+      }
+  })
+  .then(function(response) {
+      // Manejar la respuesta del backend
+      if (response.ok) {
+          // La solicitud se realizó correctamente
+          // Aquí puedes redirigir al usuario o realizar alguna otra acción
+          console.log(response)
+      } else {
+          // La solicitud falló, puedes manejar el error de alguna manera
+      }
+  })
+  .catch(function(error) {
+      // Manejar cualquier error de conexión u otro tipo de error
+  });
+// });
+
+
+  }
+>>>>>>> b4b68eb4740fc77a3d0cf67ca6bedab930eac3bb
 
   return(
     <html lang="en">
@@ -63,6 +119,7 @@ function Home() {
             <p>Unirse/Crear grupo</p>
           </div>
         </div>
+        <button onClick={probarFetch}>Probar</button>
       </body>
     </html>
   );
