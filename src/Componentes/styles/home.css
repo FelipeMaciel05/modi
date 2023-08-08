@@ -40,8 +40,8 @@ html{
     font-family: 'Inter', sans-serif;
     font-family: 'REM', sans-serif;
     margin-top: 5vh;
-    border-color: white;
-    border-radius: .5vh;
+    border: .4vh solid rgb(255, 255, 255);
+    border-radius: 5vh;
 }
 .home .fondo .contenedor button:hover {
     scale: 1.1;
@@ -70,12 +70,28 @@ html{
 .grupos{
     width: 100%;
     height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(/public/fondo2.png);
+    background-size: cover;
+	background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    background-color: #CCE5E7;
+    align-items: center;
+}
+.grupos .izq{
+    display: flex;
+    align-items: center;
+    margin-left: 3vh;
+    width: 100%;
+}
+.grupos .izq img{
+    width: 60vh;
+    height: 60vh;
 }
 .grupos .texto{
     font-size: 6vh;
+    width: 60%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-evenly;
 }
 @keyframes fadeInUpAnimation {
     from {
@@ -88,7 +104,42 @@ html{
     }
   }
   
-  /* Aplicamos la animación al elemento que tiene la clase 'fade-in-up' */
   .fade-in-up {
-    animation: fadeInUpAnimation 1s ease;
+    animation: fadeInUpAnimation 1.5s ease;
+  }
+  .unirse{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+  .unirse-textos{
+      display: flex;
+      height: 30%;
+      font-size: 8vh;
+      color: white;
+  }
+  .botones{
+      width: 100%;
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-size: 4vh;
+  }
+  .uni{
+    border: .5vh solid rgb(255, 255, 255);
+    border-radius: 2vh;
+    width: 40%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+  .grupos .izq .texto img{
+      width: 30vh;
+      height: 30vh;
   }

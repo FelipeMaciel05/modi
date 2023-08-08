@@ -16,7 +16,7 @@ function Home() {
         if (distanceFromTop - windowHeight <= 0) {
           // Si el elemento está cerca del borde inferior de la ventana, activamos el efecto.
           setFadeInUp(true);
-        } else if (distanceFromTop - windowHeight > 0) {
+        } else{
           // Si el elemento no está visible, restablecemos el estado a `false`.
           setFadeInUp(false);
         }
@@ -123,9 +123,25 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className={`grupos ${fadeInUp ? 'fade-in-up' : ''}`} id="grupo">
-          <div className={`texto ${fadeInUp ? 'fade-in-up' : ''}`}>
-            <p>Unirse/Crear grupo</p>
+        <div className="grupos" id="grupo">
+          <div className="izq">
+            <div className={`texto ${fadeInUp ? 'fade-in-up' : ''}`}>
+              <div className="unirse">
+                <div className="unirse-textos">
+                  <p>Unirse/Crear grupo</p>
+                </div>
+                <div className="botones">
+                  <div className="uni">
+                      <img src="/grupo.png" alt="" />
+                      <p>Unirse</p>
+                    </div>
+                    <div className="uni">
+                      <img src="/mas.png" alt="" />
+                      <p>Crear grupo</p>
+                    </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {/*<button onClick={probarFetch}>Probar</button>*/}
