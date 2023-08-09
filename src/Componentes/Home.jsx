@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from "./Header";
 import './styles/home.css'
 
 
@@ -14,10 +15,8 @@ function Home() {
         const windowHeight = window.innerHeight;
 
         if (distanceFromTop - windowHeight <= 0) {
-          // Si el elemento está cerca del borde inferior de la ventana, activamos el efecto.
           setFadeInUp(true);
         } else{
-          // Si el elemento no está visible, restablecemos el estado a `false`.
           setFadeInUp(false);
         }
       }
@@ -95,25 +94,9 @@ function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <header>
-          <div className="caja">
-              <div className="logo">
-                <img src="/Logo bueno edicion final.png" alt="Logo"/>
-              </div>
-              <div className="item">
-                <a href="/Home">Pagina de Inicio</a>
-              </div>
-              <div className="item">
-                <a href="#grupo">Unirse/Crear grupo</a>
-              </div>
-              <div className="item">
-                <p>Sobre Nosotros</p>
-              </div>
-              <div className="profile">
-                <img src="/profile.png" alt="Perfil"/>
-              </div>
-          </div>
-        </header>
+
+      <Header />
+      
         <div className="home">
           <div className="fondo">
             <div className="contenedor">
@@ -131,14 +114,18 @@ function Home() {
                   <p>Unirse/Crear grupo</p>
                 </div>
                 <div className="botones">
-                  <div className="uni">
+                  <a href="/Unirse">
+                    <div className="uni">
                       <img src="/grupo.png" alt="" />
                       <p>Unirse</p>
                     </div>
+                  </a>
+                  <a href="/">
                     <div className="uni">
                       <img src="/mas.png" alt="" />
                       <p>Crear grupo</p>
                     </div>
+                  </a>
                 </div>
               </div>
             </div>

@@ -5,7 +5,6 @@ import './styles/boton.css'
 
 function Register(){
 
-    
   
     return(
         <html lang="en">
