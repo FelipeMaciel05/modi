@@ -50,12 +50,12 @@ function Home() {
           rol: rol
       };*/
       var pruebaD = {
-        nombre: "juan",
+        name: "juan",
         usuario: "jmm",
-        password: 123,
-        confirmarPassword: 123,
+        contrasenia: "123",
+        confirmarcontrasenia: "123",
         email: "jmm@gmail.com",
-        rol: "usuario"
+        rol: "Medico"
       };
 
       // Enviar los datos al backend utilizando AJAX o Fetch
