@@ -52,13 +52,13 @@ function Home() {
       var pruebaD = {
         name: "juan",
         usuario: "jmm",
-        contrasenia: "123",
         confirmarcontrasenia: "123",
+        contrasenia: "123",
         email: "jmm@gmail.com",
         rol: "Medico"
       };
 
-      // Enviar los datos al backend utilizando AJAX o Fetch
+      // Enviar los datos al backend utilizando Fetch
       fetch('http://localhost:9000/api/CrearUsuario', {
         method: "POST",
         body: JSON.stringify(pruebaD),
