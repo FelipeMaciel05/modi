@@ -35,7 +35,7 @@ function Register(){
                 <input type="text" name="nombre" placeholder="Nombre Completo" id="name" />
               </div>
               <div className="email">
-                <input type="email" name="usuario" placeholder="Correo Electronico" id="usuario" />
+                <input type="email" name="usuario" placeholder="Correo Electronico" id="email" />
               </div>
               <div className="password">
                 <input type="password" name="password" placeholder="Contraseña" id="password" />
