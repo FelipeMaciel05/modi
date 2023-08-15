@@ -1,5 +1,5 @@
 import React from 'react';
-import Buttons, { Boton } from "./Buttons";
+import Buttons from "./Buttons";
 import './styles/boton.css'
 
 function Login() {
@@ -11,11 +11,8 @@ function Login() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Inicia Sesion</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
       </head>
       <body>
         <div className="cajamayor">

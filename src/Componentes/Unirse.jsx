@@ -17,7 +17,21 @@ function Unirse(){
         <body>
             <Header />
         
-            
+            <div className="box">
+                    <div className="box-textos">
+                        <p>Unirse a un grupo</p>
+                        <form action="" method="post">
+                            <div className="completar">
+                                <input type="text" placeholder="ID o Código del grupo" name="Ingrese su nombre" id="" />
+                            </div>
+                            <div className="completar">
+                                <input type="text" placeholder="Nombre del paciente" name="Ingrese su nombre" id="" />
+                            </div>
+                            <button type="submit">Unirse</button>
+                        </form>
+                    </div>
+                </div>
+
         </body>
         </html>
     );

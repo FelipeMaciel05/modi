@@ -1,7 +1,7 @@
 import Register from "./Componentes/Register";
 import Login from "./Componentes/Login";
 import React from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./Componentes/Home";
 import Unirse from "./Componentes/Unirse";
 
