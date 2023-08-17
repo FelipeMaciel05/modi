@@ -5,6 +5,9 @@ import './styles/boton.css'
 
 function Register(){
 
+  const handleRegistro = () => {
+    // Lógica de registro
+  };
   
     return(
         <html lang="en">
@@ -52,7 +55,7 @@ function Register(){
                   <option value="Kinesiologo">Kinesiologo</option>
                 </select>
               </div>
-              <Buttons />
+              <Buttons onClick={handleRegistro}/>
               <div className="text">
                 <p>
                   ¿Ya tienes una cuenta? <a href="/Login">Log in</a> 

@@ -3,6 +3,9 @@ import Buttons from "./Buttons";
 import './styles/boton.css'
 
 function Login() {
+  const handleLogin = () => {
+    // Lógica de inicio de sesión
+  };
   return(
     <html lang="en">
       <head>
@@ -32,7 +35,7 @@ function Login() {
                 <div className="password">
                   <input type="password" name="password" placeholder="Contraseña" id="" />
                 </div>
-                <Buttons />
+                <Buttons onClick={handleLogin}/>
                 <div className="text">
                   <p>
                     ¿No tienes cuenta? <a href="/Register">Registrate</a>
