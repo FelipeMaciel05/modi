@@ -1,10 +1,10 @@
-    
+
 // Nuevo componente BotonSubmit.js
 import React from 'react';
-const Buttons = () => {
+const Buttons = ({ onClick }) => {
   return (
     <div className="boton">
-      <input type="submit" value="Ingresa"/>
+      <input type="submit" value="Ingresa" onClick={onClick} />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import './styles/boton.css'
 function Login() {
   const handleLogin = (event) => {
     // Lógica de inicio de sesión
-
     // document.getElementById("registro").addEventListener("submit", function (event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
     // Obtener los valores de los campos del formulario
