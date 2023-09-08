@@ -69,7 +69,7 @@ function Home() {
                       <p>Unirse</p>
                     </div>
                   </a>
-                  <a href="/">
+                  <a href="/Crear">
                     <div className="uni">
                       <img src="/mas.png" alt="" />
                       <p>Crear grupo</p>
