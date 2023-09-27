@@ -3,7 +3,32 @@ import './styles/crear.css'
 
 
 function Crear(){
-    return(
+    const crearGrupo = (event) => {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+        // Enviar los datos al backend utilizando Fetch
+        fetch('http://localhost:9000/api/crearGrupo', {
+          method: "POST",
+          body: JSON.stringify(),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(function (response) {
+            // Manejar la respuesta del backend
+            if (response.ok) {
+              // La solicitud se realizó correctamente
+              // Aquí puedes redirigir al usuario o realizar alguna otra acción
+              console.log(response)
+            } else {
+              // La solicitud falló, puedes manejar el error de alguna manera
+            }
+          })
+          .catch(function (error) {
+            // Manejar cualquier error de conexión u otro tipo de error
+          });
+    
+      };
+      return (    
         <html lang="en">
         <head>
         <meta charset="UTF-8" />
@@ -45,7 +70,7 @@ function Crear(){
                                 <p for="ticketNum">Psicologos:</p>
                                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
                             </div>
-                            <button type="submit">Crear Grupo</button>
+                            <button type="submit" onClick={crearGrupo}>Crear Grupo</button>
                         </form>
                     </div>
                 </div>
