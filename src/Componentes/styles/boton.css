@@ -3,7 +3,7 @@ body{
     font-family: 'REM', sans-serif;
     margin: 0px;
 }
-.login form h1{
+.login .form-inicio h1{
     font-family: 'Inter', sans-serif;
     font-family: 'REM', sans-serif;
     font-size: 5vh;
@@ -105,7 +105,7 @@ input .email{
         font-family: 'REM', sans-serif;
         margin: 0;
     }
-    form h1 {
+    .form-inicio h1 {
         font-family: 'Inter', sans-serif;
         font-family: 'REM', sans-serif; 
     }

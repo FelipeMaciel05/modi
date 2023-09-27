@@ -21,13 +21,29 @@ function Crear(){
 
                 <div className="caja-crear">
                     <div className="caja-crear-textos">
-                        <p>Crear un grupo</p>
+                        <p className="titulo">Crear un grupo</p>
                         <form action="" method="post" class="form-crear">
                             <div className="nombre-crear">
                                 <input type="text" placeholder="Nombre del paciente" id="" />
                             </div>
                             <div className="descripcion-crear">
                                 <input type="text" placeholder="Breve descripción del paciente y condición" id="" />
+                            </div>
+                            <div className="cantidad-medicos">
+                                <p for="ticketNum">Medicos Cabecera:</p>
+                                <input id="cabecera" type="number" name="ticketNum" placeholder="0" min="1" max="2" />
+                            </div>
+                            <div className="cantidad-medicos">
+                                <p for="ticketNum">Enfermeras:</p>
+                                <input id="enfermera" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
+                            </div>
+                            <div className="cantidad-medicos">
+                                <p for="ticketNum">Kinesiologos:</p>
+                                <input id="kinesiologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
+                            </div>
+                            <div className="cantidad-medicos">
+                                <p for="ticketNum">Psicologos:</p>
+                                <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
                             </div>
                             <button type="submit">Crear Grupo</button>
                         </form>

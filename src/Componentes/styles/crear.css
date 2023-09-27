@@ -8,6 +8,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0;
 }
 .form-crear{
     display: flex;
@@ -16,12 +17,17 @@ body{
 }
 .caja-crear-textos{
     width: 35%;
-    min-height: 75vh;
+    min-height: 80vh;
     display: flex;
     background-color: white;
     flex-direction: column;
     align-items: center;
-    font-size: 5.5vh;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .7); 
+    border-radius: 2vh;  
+}
+.caja-crear-textos .titulo{
+    font-size: 5vh;
+    font-weight: 600;  
 }
 .nombre-crear input{
     width: 50vh;
@@ -32,17 +38,52 @@ body{
     border: 0;
     border-bottom: .4vh solid black;
     color: #6b6b6b;
-    margin-bottom: 3vh;
+    margin-bottom: 4vh;
 }
 .descripcion-crear input{
     width: 50vh;
-    height: 12vh;
+    height: 6vh;
     font-size: 2.5vh;
     font-weight: 500;
     font-family: 'REM', sans-serif;
     border: 0;
     border-bottom: .4vh solid black;
     color: #6b6b6b;
-    margin-bottom: 3vh;
+    margin-bottom: 4vh;
     text-align: start;
+}
+.cantidad-medicos{
+    width: 35vh;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2vh;
+    color: #6b6b6b;
+}
+.cantidad-medicos p{
+    font-size: 2.5vh;
+}
+.cantidad-medicos input{
+    width: 5vh;
+    height: 3vh;
+    border: .4vh solid black;
+    border-radius: 1vh;
+}
+.caja-crear-textos button{
+    font-family: 'REM', sans-serif;
+    height: 7vh;
+    box-sizing: border-box;
+    background: rgb(90, 155, 167);
+    border:none;
+    border-radius: 5vh;
+    color: #FFFFFF;
+    font-size: 2.6vh;
+    cursor: pointer;
+    width: 100%;
+}
+.caja-crear-textos button:hover{
+    scale: 1.1;
+    cursor: pointer; 
+    transition: .3s;
 }

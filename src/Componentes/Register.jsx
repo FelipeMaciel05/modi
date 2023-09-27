@@ -68,7 +68,7 @@ function Register() {
           </div>
           <div className="cajaderecha">
             <div className="login">
-              <form id="registro" action="" method="post">
+              <form id="registro" className="form-inicio" method="post">
                 <h1>Create Account</h1>
                 <div className="nombre">
                   <input type="text" name="nombre" placeholder="Nombre Completo" id="name" />
