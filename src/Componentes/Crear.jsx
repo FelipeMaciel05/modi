@@ -1,34 +1,49 @@
 import Header from "./Header";
 import './styles/crear.css'
 
+const crearGrupo = (event) => {
+  // Lógica de inicio de sesión
+  // document.getElementById("registro").addEventListener("submit", function (event) {
+  event.preventDefault(); // Evitar el envío del formulario por defecto
+  // Obtener los valores de los campos del formulario
+  var NombreGrupo = document.getElementById("name").value;
+  var ContraGrupo = document.getElementById("name").value;
+  var DNI = document.getElementById("name").value;
+  var MedicoCabecera = document.getElementById("email").value;
+  var Enfermeras = document.getElementById("confirmarpassword").value;
+  var Kinesiologos = document.getElementById("password").value;
+  var Psicologos = document.getElementById("rol").value;
+  // Crear un objeto con los datos a enviar al backend
+  var data = {
+    name: NombreGrupo,
+    confirmarcontrasenia: DNI,
+    contrasenia: MedicoCabecera,
+  
+  };
+  // Enviar los datos al backend utilizando Fetch
+  fetch('http://localhost:9000/api/IniciarSesion', {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(function (response) {
+      // Manejar la respuesta del backend
+      if (response.ok) {
+        // La solicitud se realizó correctamente
+        // Aquí puedes redirigir al usuario o realizar alguna otra acción
+        console.log(response)
+      } else {
+        // La solicitud falló, puedes manejar el error de alguna manera
+      }
+    })
+    .catch(function (error) {
+      // Manejar cualquier error de conexión u otro tipo de error
+    });
 
-function Crear(){
-    const crearGrupo = (event) => {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
-        // Enviar los datos al backend utilizando Fetch
-        fetch('http://localhost:9000/api/crearGrupo', {
-          method: "POST",
-          body: JSON.stringify(),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-          .then(function (response) {
-            // Manejar la respuesta del backend
-            if (response.ok) {
-              // La solicitud se realizó correctamente
-              // Aquí puedes redirigir al usuario o realizar alguna otra acción
-              console.log(response)
-            } else {
-              // La solicitud falló, puedes manejar el error de alguna manera
-            }
-          })
-          .catch(function (error) {
-            // Manejar cualquier error de conexión u otro tipo de error
-          });
-    
-      };
-      return (    
+  };
+  return (    
         <html lang="en">
         <head>
         <meta charset="UTF-8" />
@@ -51,11 +66,8 @@ function Crear(){
                             <div className="nombre-crear">
                                 <input type="text" placeholder="Nombre del paciente" id="" />
                             </div>
-                            <div className="password">
-                                <input type="text" placeholder="Contraseña" id="" />
-                            </div>
-                            <div className="dni">
-                                <input type="text" placeholder="DNI" id="" />
+                            <div className="descripcion-crear">
+                                <input type="text" placeholder="Breve descripción del paciente y condición" id="" />
                             </div>
                             <div className="cantidad-medicos">
                                 <p for="ticketNum">Medicos Cabecera:</p>
