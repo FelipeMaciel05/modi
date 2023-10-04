@@ -30,18 +30,16 @@ function Register() {
         "Content-Type": "application/json"
       }
     })
-      .then(function (response) {
-        // Manejar la respuesta del backend
-        if (response.ok) {
-          // La solicitud se realizó correctamente
-          // Aquí puedes redirigir al usuario o realizar alguna otra acción
+    .then(function (response) {
+      if (response.ok) {
+        window.location.href = '/Login';
           console.log(response)
         } else {
-          // La solicitud falló, puedes manejar el error de alguna manera
+          alert("No se a podido Registrar")
         }
       })
       .catch(function (error) {
-        // Manejar cualquier error de conexión u otro tipo de error
+        alert("No se a podido Registrar debido a un error")
       });
   };
 

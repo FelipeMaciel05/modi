@@ -4,13 +4,9 @@ import './styles/boton.css'
 
 function Login() {
   const handleLogin = (event) => {
-    // Lógica de inicio de sesión
-    // document.getElementById("registro").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
-    // Obtener los valores de los campos del formulario
+    event.preventDefault();
     var Maail = document.getElementById("Mail").value;
     var Password = document.getElementById("Contraseniaa").value;
-    // Crear un objeto con los datos a enviar al backend
     var data = {
       email: Maail,
       contrasenia: Password,
@@ -24,17 +20,15 @@ function Login() {
       }
     })
       .then(function (response) {
-        // Manejar la respuesta del backend
-        if (response.ok) {
-          // La solicitud se realizó correctamente
-          // Aquí puedes redirigir al usuario o realizar alguna otra acción
+      if (response.ok) {
+        window.location.href = '/Home';
           console.log(response)
         } else {
-          // La solicitud falló, puedes manejar el error de alguna manera
+          alert("No se a podido Iniciar Sesion")
         }
       })
       .catch(function (error) {
-        // Manejar cualquier error de conexión u otro tipo de error
+        alert("No se a podido Iniciar Sesion debido a un error")
       });
 
   };

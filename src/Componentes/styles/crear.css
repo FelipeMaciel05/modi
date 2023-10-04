@@ -4,7 +4,7 @@ body{
 }
 .caja-crear{
     width: 100%;
-    height: 88vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body{
 }
 .caja-crear-textos{
     width: 35%;
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     background-color: white;
     flex-direction: column;
@@ -40,7 +40,19 @@ body{
     color: #6b6b6b;
     margin-bottom: 4vh;
 }
-.descripcion-crear input{
+.password input{
+    width: 50vh;
+    height: 6vh;
+    font-size: 2.5vh;
+    font-weight: 500;
+    font-family: 'REM', sans-serif;
+    border: 0;
+    border-bottom: .4vh solid black;
+    color: #6b6b6b;
+    margin-bottom: 4vh;
+    text-align: start;
+}
+.dni input{
     width: 50vh;
     height: 6vh;
     font-size: 2.5vh;

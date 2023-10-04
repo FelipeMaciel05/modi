@@ -26,8 +26,11 @@ function Crear(){
                             <div className="nombre-crear">
                                 <input type="text" placeholder="Nombre del paciente" id="" />
                             </div>
-                            <div className="descripcion-crear">
-                                <input type="text" placeholder="Breve descripción del paciente y condición" id="" />
+                            <div className="password">
+                                <input type="text" placeholder="Contraseña" id="" />
+                            </div>
+                            <div className="dni">
+                                <input type="text" placeholder="DNI" id="" />
                             </div>
                             <div className="cantidad-medicos">
                                 <p for="ticketNum">Medicos Cabecera:</p>
