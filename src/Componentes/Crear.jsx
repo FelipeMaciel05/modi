@@ -1,50 +1,43 @@
 import Header from "./Header";
 import './styles/crear.css'
+function CrearGrupo() {
 
-const crearGrupo = (event) => {
-  // Lógica de inicio de sesión
-  // document.getElementById("registro").addEventListener("submit", function (event) {
-  event.preventDefault(); // Evitar el envío del formulario por defecto
-  // Obtener los valores de los campos del formulario
-  var NombreGrupo = document.getElementById("name").value;
-  var ContraGrupo = document.getElementById("name").value;
-  var DNI = document.getElementById("name").value;
-  var MedicoCabecera = document.getElementById("email").value;
-  var Enfermeras = document.getElementById("confirmarpassword").value;
-  var Kinesiologos = document.getElementById("password").value;
-  var Psicologos = document.getElementById("rol").value;
+  const HandleCreacion = (event) => {
+    // document.getElementById("registro").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+    // Obtener los valores de los campos del formulario
+    var NombreGrupo = document.getElementById("name").value;
+    var ContraGrupo = document.getElementById("name").value;
+    var DNI = document.getElementById("name").value;
   // Crear un objeto con los datos a enviar al backend
-  var data = {
-    name: NombreGrupo,
-    confirmarcontrasenia: DNI,
-    contrasenia: MedicoCabecera,
-  
-  };
-  // Enviar los datos al backend utilizando Fetch
-  fetch('http://localhost:9000/api/IniciarSesion', {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then(function (response) {
-      // Manejar la respuesta del backend
-      if (response.ok) {
-        // La solicitud se realizó correctamente
-        // Aquí puedes redirigir al usuario o realizar alguna otra acción
-        console.log(response)
-      } else {
-        // La solicitud falló, puedes manejar el error de alguna manera
+    var data = {
+      NameG: NombreGrupo,
+      ContraG: ContraGrupo,
+      dni: DNI,
+    };
+    // Enviar los datos al backend utilizando Fetch
+    fetch('http://localhost:9000/api/CrearGrupo', {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
       }
     })
-    .catch(function (error) {
-      // Manejar cualquier error de conexión u otro tipo de error
-    });
-
+    .then(function (response) {
+      if (response.ok) {
+        window.location.href = '/Login';
+          console.log(response)
+        } else {
+          alert("No se a podido Crear")
+        }
+      })
+      .catch(function (error) {
+        alert("No se a podido Crear debido a un error")
+      });
   };
-  return (    
-        <html lang="en">
+
+  return (
+    <html lang="en">
         <head>
         <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,13 +78,14 @@ const crearGrupo = (event) => {
                                 <p for="ticketNum">Psicologos:</p>
                                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
                             </div>
-                            <button type="submit" onClick={crearGrupo}>Crear Grupo</button>
+                            <button type="submit" onClick={HandleCreacion}>Crear Grupo</button>
                         </form>
                     </div>
                 </div>
         </body>
         </html>
-    )
-}
+    );
+  }
 
-export default Crear;
+export default CrearGrupo;
+
