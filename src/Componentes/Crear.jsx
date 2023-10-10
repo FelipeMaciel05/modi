@@ -6,9 +6,9 @@ function CrearGrupo() {
     // document.getElementById("registro").addEventListener("submit", function (event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
     // Obtener los valores de los campos del formulario
-    var NombreGrupo = document.getElementById("name").value;
-    var ContraGrupo = document.getElementById("name").value;
-    var DNI = document.getElementById("name").value;
+    var NombreGrupo = document.getElementById("Ngrupo").value;
+    var ContraGrupo = document.getElementById("Cgrupo").value;
+    var DNI = document.getElementById("Dni").value;
   // Crear un objeto con los datos a enviar al backend
     var data = {
       NameG: NombreGrupo,
@@ -57,7 +57,7 @@ function CrearGrupo() {
                         <p className="titulo">Crear un grupo</p>
                         <form action="" method="post" class="form-crear">
                             <div className="nombre-crear">
-                                <input type="text" placeholder="Nombre del paciente" id="" />
+                                <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
                             </div>
                             <div className="descripcion-crear">
                                 <input type="text" placeholder="Breve descripción del paciente y condición" id="" />
