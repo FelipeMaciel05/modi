@@ -51,7 +51,7 @@ function Crear(){
                             <div className="nombre-crear">
                                 <input type="text" placeholder="Nombre del paciente" id="" />
                             </div>
-                            <div className="password">
+                            <div className="password-crear">
                                 <input type="text" placeholder="Contraseña" id="" />
                             </div>
                             <div className="dni">
