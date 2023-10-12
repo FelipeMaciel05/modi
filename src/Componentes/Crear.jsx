@@ -1,35 +1,43 @@
 import Header from "./Header";
 import './styles/crear.css'
+function CrearGrupo() {
 
+  const HandleCreacion = (event) => {
+    // document.getElementById("registro").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+    // Obtener los valores de los campos del formulario
+    var NombreGrupo = document.getElementById("Ngrupo").value;
+    var ContraGrupo = document.getElementById("Cgrupo").value;
+    var DNI = document.getElementById("Dni").value;
+  // Crear un objeto con los datos a enviar al backend
+    var data = {
+      NameG: NombreGrupo,
+      ContraG: ContraGrupo,
+      dni: DNI,
+    };
+    // Enviar los datos al backend utilizando Fetch
+    fetch('http://localhost:9000/api/CrearGrupo', {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(function (response) {
+      if (response.ok) {
+        window.location.href = '/Login';
+          console.log(response)
+        } else {
+          alert("No se a podido Crear")
+        }
+      })
+      .catch(function (error) {
+        alert("No se a podido Crear debido a un error")
+      });
+  };
 
-function Crear(){
-    const crearGrupo = (event) => {
-        event.preventDefault(); // Evitar el envío del formulario por defecto
-        // Enviar los datos al backend utilizando Fetch
-        fetch('http://localhost:9000/api/crearGrupo', {
-          method: "POST",
-          body: JSON.stringify(),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-          .then(function (response) {
-            // Manejar la respuesta del backend
-            if (response.ok) {
-              // La solicitud se realizó correctamente
-              // Aquí puedes redirigir al usuario o realizar alguna otra acción
-              console.log(response)
-            } else {
-              // La solicitud falló, puedes manejar el error de alguna manera
-            }
-          })
-          .catch(function (error) {
-            // Manejar cualquier error de conexión u otro tipo de error
-          });
-    
-      };
-      return (    
-        <html lang="en">
+  return (
+    <html lang="en">
         <head>
         <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -49,13 +57,13 @@ function Crear(){
                         <p className="titulo">Crear un grupo</p>
                         <form action="" method="post" class="form-crear">
                             <div className="nombre-crear">
-                                <input type="text" placeholder="Nombre del paciente" id="" />
+                                <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
                             </div>
                             <div className="password-crear">
                                 <input type="text" placeholder="Contraseña" id="" />
                             </div>
                             <div className="dni">
-                                <input type="text" placeholder="DNI" id="" />
+                                <input type="text" placeholder="DNI" id="Dni" />
                             </div>
                             <div className="cantidad-medicos">
                                 <p for="ticketNum">Medicos Cabecera:</p>
@@ -73,13 +81,14 @@ function Crear(){
                                 <p for="ticketNum">Psicologos:</p>
                                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
                             </div>
-                            <button type="submit" onClick={crearGrupo}>Crear Grupo</button>
+                            <button type="submit" onClick={HandleCreacion}>Crear Grupo</button>
                         </form>
                     </div>
                 </div>
         </body>
         </html>
-    )
-}
+    );
+  }
 
-export default Crear;
+export default CrearGrupo;
+

@@ -21,7 +21,7 @@ function Login() {
     })
       .then(function (response) {
       if (response.ok) {
-        window.location.href = '/Home';
+        window.location.href = '/';
           console.log(response)
         } else {
           alert("No se a podido Iniciar Sesion")
