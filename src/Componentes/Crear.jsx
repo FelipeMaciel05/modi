@@ -60,7 +60,7 @@ function CrearGrupo() {
                                 <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
                             </div>
                             <div className="password-crear">
-                                <input type="text" placeholder="Contraseña" id="" />
+                                <input type="text" placeholder="Contraseña" id="Cgrupo" />
                             </div>
                             <div className="dni">
                                 <input type="text" placeholder="DNI" id="Dni" />
