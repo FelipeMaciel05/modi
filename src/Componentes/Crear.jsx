@@ -1,8 +1,21 @@
 import Header from "./Header";
 import './styles/crear.css'
+import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+
 function CrearGrupo() {
 
   const HandleCreacion = (event) => {
+    const [token, setToken] = useState('');
+
+    useEffect(() => {
+      // Read the token from the cookie when the component mounts
+      const authToken = Cookies.get('token');
+  
+      if (authToken) {
+        setToken(authToken);
+      }
+    }, []);
     // document.getElementById("registro").addEventListener("submit", function (event) {
     event.preventDefault(); // Evitar el envío del formulario por defecto
     // Obtener los valores de los campos del formulario
@@ -20,7 +33,8 @@ function CrearGrupo() {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
       }
     })
     .then(function (response) {
@@ -32,6 +46,7 @@ function CrearGrupo() {
         }
       })
       .catch(function (error) {
+        console.log(error)
         alert("No se a podido Crear debido a un error")
       });
   };
