@@ -1,0 +1,29 @@
+body{
+    font-family: 'REM', sans-serif;
+}
+.grupo-total{
+    display: flex;
+    justify-content: center;
+}
+.caja-medicos-total{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    width: 60%;
+    height: 100vh;
+}
+form .form-de-grupo-creado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.medico-cabecera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.enfermera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
