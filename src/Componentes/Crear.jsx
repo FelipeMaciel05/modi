@@ -4,29 +4,29 @@ import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 
 function CrearGrupo() {
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    // Read the token from the cookie when the component mounts
+    const authToken = Cookies.get('token');
+    if (authToken) {
+      console.log(authToken);
+      setToken(authToken);
+    }
+  }, []);
 
   const HandleCreacion = (event) => {
-    const [token, setToken] = useState('');
-
-    useEffect(() => {
-      // Read the token from the cookie when the component mounts
-      const authToken = Cookies.get('token');
-  
-      if (authToken) {
-        setToken(authToken);
-      }
-    }, []);
+    event.preventDefault();
     // document.getElementById("registro").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evitar el envío del formulario por defecto
     // Obtener los valores de los campos del formulario
     var NombreGrupo = document.getElementById("Ngrupo").value;
     var ContraGrupo = document.getElementById("Cgrupo").value;
     var DNI = document.getElementById("Dni").value;
-  // Crear un objeto con los datos a enviar al backend
+    // Crear un objeto con los datos a enviar al backend
     var data = {
-      NameG: NombreGrupo,
-      ContraG: ContraGrupo,
-      dni: DNI,
+      nombreP: NombreGrupo,
+      Contra: ContraGrupo,
+      Dni: DNI,
     };
     // Enviar los datos al backend utilizando Fetch
     fetch('http://localhost:9000/api/CrearGrupo', {
@@ -37,9 +37,9 @@ function CrearGrupo() {
         "Authorization": "Bearer " + token
       }
     })
-    .then(function (response) {
-      if (response.ok) {
-        window.location.href = '/Login';
+      .then(function (response) {
+        if (response.ok) {
+          // window.location.href = '/';
           console.log(response)
         } else {
           alert("No se a podido Crear")
@@ -53,57 +53,57 @@ function CrearGrupo() {
 
   return (
     <html lang="en">
-        <head>
+      <head>
         <meta charset="UTF-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />a
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Crear un grupo</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
-        </head>
-        <body>
-            
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />a
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Crear un grupo</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
+      </head>
+      <body>
+
         <Header />
 
 
-                <div className="caja-crear">
-                    <div className="caja-crear-textos">
-                        <p className="titulo">Crear un grupo</p>
-                        <form action="" method="post" class="form-crear">
-                            <div className="nombre-crear">
-                                <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
-                            </div>
-                            <div className="password-crear">
-                                <input type="text" placeholder="Contraseña" id="Cgrupo" />
-                            </div>
-                            <div className="dni">
-                                <input type="text" placeholder="DNI" id="Dni" />
-                            </div>
-                            <div className="cantidad-medicos">
-                                <p for="ticketNum">Medicos Cabecera:</p>
-                                <input id="cabecera" type="number" name="ticketNum" placeholder="0" min="1" max="2" />
-                            </div>
-                            <div className="cantidad-medicos">
-                                <p for="ticketNum">Enfermeras:</p>
-                                <input id="enfermera" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
-                            </div>
-                            <div className="cantidad-medicos">
-                                <p for="ticketNum">Kinesiologos:</p>
-                                <input id="kinesiologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
-                            </div>
-                            <div className="cantidad-medicos">
-                                <p for="ticketNum">Psicologos:</p>
-                                <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
-                            </div>
-                            <button type="submit" onClick={HandleCreacion}>Crear Grupo</button>
-                        </form>
-                    </div>
-                </div>
-        </body>
-        </html>
-    );
-  }
+        <div className="caja-crear">
+          <div className="caja-crear-textos">
+            <p className="titulo">Crear un grupo</p>
+            <form action="" method="post" class="form-crear">
+              <div className="nombre-crear">
+                <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
+              </div>
+              <div className="password-crear">
+                <input type="text" placeholder="Contraseña" id="Cgrupo" />
+              </div>
+              <div className="dni">
+                <input type="text" placeholder="DNI" id="Dni" />
+              </div>
+              <div className="cantidad-medicos">
+                <p for="ticketNum">Medicos Cabecera:</p>
+                <input id="cabecera" type="number" name="ticketNum" placeholder="0" min="1" max="2" />
+              </div>
+              <div className="cantidad-medicos">
+                <p for="ticketNum">Enfermeras:</p>
+                <input id="enfermera" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
+              </div>
+              <div className="cantidad-medicos">
+                <p for="ticketNum">Kinesiologos:</p>
+                <input id="kinesiologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
+              </div>
+              <div className="cantidad-medicos">
+                <p for="ticketNum">Psicologos:</p>
+                <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
+              </div>
+              <button type="submit" onClick={HandleCreacion}>Crear Grupo</button>
+            </form>
+          </div>
+        </div>
+      </body>
+    </html>
+  );
+}
 
 export default CrearGrupo;
 
