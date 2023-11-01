@@ -22,7 +22,7 @@ function Unirse(){
                         <p>Unirse a un grupo</p>
                         <form action="" method="post" className="form-unirse">
                             <div className="completar">
-                                <input type="text" placeholder="ID o Código del grupo" name="Ingrese su nombre" id="" />
+                                <input type="password" placeholder="Contraseña del grupo" name="Ingrese su nombre" id="" />
                             </div>
                             <div className="completar">
                                 <input type="text" placeholder="Nombre del paciente" name="Ingrese su nombre" id="" />

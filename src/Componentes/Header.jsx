@@ -13,6 +13,9 @@ function Header(){
               <div className="item">
                 <a href="/Crear">Crear grupo</a>
               </div>
+              <div className="item">
+                <a href="/Grupo">Mi grupo</a>
+              </div>
               <div className="profile">
                 <a href="/Login"><img src="/profile.png" alt="Perfil"/></a>
               </div>

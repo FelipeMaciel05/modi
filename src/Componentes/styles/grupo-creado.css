@@ -3,27 +3,69 @@ body{
 }
 .grupo-total{
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    height: 126vh;
 }
 .caja-medicos-total{
     display: flex;
     justify-content: space-around;
     background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .7); 
     width: 60%;
-    height: 100vh;
+    height: 120vh;
+    margin-top: 3vh;
+    border-radius: 2vh;  
+}
+.primero, .segundo{
+    width: 100%;
 }
 form .form-de-grupo-creado{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.medico-cabecera{
+.enfermera, .kinesiologo, .medico-cabecera, .psicologo{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 3vh;
 }
-.enfermera{
+.medico-cabecera, .kinesiologo{
+    height: 70vh;
+}
+.enfermera input, .kinesiologo input, .medico-cabecera input, .psicologo input{
+    font-family: 'REM', sans-serif;
+    width: 70%;
+    height: 5vh;
+    margin-bottom: 3vh;
+    font-size: 2.25vh;
+    border: 0;
+    border-bottom: .4vh solid black;
+}
+.enfermera input[type="submit"], .kinesiologo input[type="submit"], .medico-cabecera input[type="submit"], .psicologo input[type="submit"]{
+    height: 6vh;
+    border:0;
+    background: #72C9CD;
+    color: white;
+    border-radius: 5vh;
+}
+.enfermera input[type="submit"]:hover, .kinesiologo input[type="submit"]:hover, .medico-cabecera input[type="submit"]:hover, .psicologo input[type="submit"]:hover{
+    scale: 1.1;
+    transition: .2s;
+}
+.caja-checkbox{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+.checkbox-interno{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.caja-input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

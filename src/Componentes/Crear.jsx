@@ -1,11 +1,10 @@
 import Header from "./Header";
 import './styles/crear.css'
-import React, { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 function CrearGrupo() {
 
-  const HandleCreacion = (event) => {
+  /*/const HandleCreacion = (event) => {
     const [token, setToken] = useState('');
 
     useEffect(() => {
@@ -49,7 +48,7 @@ function CrearGrupo() {
         console.log(error)
         alert("No se a podido Crear debido a un error")
       });
-  };
+  };/*/
 
   return (
     <html lang="en">
@@ -96,7 +95,7 @@ function CrearGrupo() {
                                 <p for="ticketNum">Psicologos:</p>
                                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
                             </div>
-                            <button type="submit" onClick={HandleCreacion}>Crear Grupo</button>
+                            <button type="submit" /*/</form>onClick={HandleCreacion}/*/>Crear Grupo</button>
                         </form>
                     </div>
                 </div>

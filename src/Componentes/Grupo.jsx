@@ -22,7 +22,7 @@ function Grupo(){
 
             <div className="grupo-total">
                 <div className="caja-medicos-total">
-                    <div className="1">
+                    <div className="primero">
                     <div className="caja-medico-cabecera">
                         <form method="post" className="form-de-grupo-creado">
                             <div className="medico-cabecera">
@@ -75,27 +75,55 @@ function Grupo(){
                         </form>
                     </div>
                     </div>
-                    
-                    <div className="caja-kinesiologo">
-                        <form method="post" className="form-de-grupo-creado">
-                            <div className="kinesiologo">
-                                <div className="texto">
-                                    <p>Kinesiologo</p>
+                    <div className="segundo">
+                        <div className="caja-kinesiologo">
+                            <form method="post" className="form-de-grupo-creado">
+                                <div className="kinesiologo">
+                                    <div className="texto">
+                                        <p>Kinesiologo</p>
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Interconsulta" />
+                                    </div>
+                                    <div className="caja-checkbox">
+                                        <div className="checkbox-interno">
+                                            <p>AKM<input type="radio" name="check" id="" /></p>
+                                            <p>AKR<input type="radio" name="check" id="" /></p>
+                                        </div>
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Evolucion" />
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Devolucion al familiar" />
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="submit" value="Enviar" />
+                                    </div>
                                 </div>
-                                <div className="caja-input">
-                                    <input type="text" placeholder="Indicaciones Medicas" />
+                            </form>
+                        </div>
+                        <div className="caja-psicologo">
+                            <form method="post" className="form-de-grupo-creado">
+                                <div className="psicologo">
+                                    <div className="texto">
+                                        <p>Psicologo</p>
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Interconsulta" />
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Evolucion" />
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="text" placeholder="Devolucion al familiar" />
+                                    </div>
+                                    <div className="caja-input">
+                                        <input type="submit" value="Enviar" />
+                                    </div>
                                 </div>
-                                <div className="caja-input">
-                                    <input type="text" placeholder="Evolucion" />
-                                </div>
-                                <div className="caja-input">
-                                    <input type="text" placeholder="Devolucion al familiar" />
-                                </div>
-                                <div className="caja-input">
-                                    <input type="submit" value="Enviar" />
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
