@@ -20,9 +20,24 @@ function Login() {
       }
     })
       .then(function (response) {
-      if (response.ok) {
-        window.location.href = '/';
-          console.log(response)
+        if (response.ok) {
+          response.json().then((data) => {
+            const token = data.token;
+
+            if (token) {
+              console.log("Token:", token);
+              const date = new Date();
+              date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000)); // Calculate the expiration time
+
+              const expires = `expires=${date.toUTCString()}`;
+              document.cookie = `token=${token}; ${expires}; path=/`;
+              // setCookie("auth_token", token, 7);
+              // window.location.href = '/';
+            } else {
+              console.log("Token not found in the response.");
+            }
+          })
+
         } else {
           alert("No se a podido Iniciar Sesion")
         }
