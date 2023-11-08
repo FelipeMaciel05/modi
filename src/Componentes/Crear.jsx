@@ -1,9 +1,11 @@
 import Header from "./Header";
 import './styles/crear.css'
-//import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
+import { useState } from "react";
+import { useEffect } from "react";
 
 function CrearGrupo() {
-  /*/const [token, setToken] = useState('');
+  const [token, setToken] = useState('');
 
   useEffect(() => {
     // Read the token from the cookie when the component mounts
@@ -15,16 +17,8 @@ function CrearGrupo() {
   }, []);
 
   const HandleCreacion = (event) => {
-    const [token, setToken] = useState('');
-
-    useEffect(() => {
-      // Read the token from the cookie when the component mounts
-      const authToken = Cookies.get('token');
-  
-      if (authToken) {
-        setToken(authToken);
-      }
-    }, []);
+    console.log("AAAAAAAAAAAA")
+    event.preventDefault();
     // document.getElementById("registro").addEventListener("submit", function (event) {
     // Obtener los valores de los campos del formulario
     var NombreGrupo = document.getElementById("Ngrupo").value;
@@ -47,7 +41,7 @@ function CrearGrupo() {
     })
       .then(function (response) {
         if (response.ok) {
-          // window.location.href = '/';
+          window.location.href = '/';
           console.log(response)
         } else {
           alert("No se a podido Crear")
@@ -57,7 +51,7 @@ function CrearGrupo() {
         console.log(error)
         alert("No se a podido Crear debido a un error")
       });
-  };/*/
+  };
 
   return (
     <html lang="en">
@@ -77,7 +71,7 @@ function CrearGrupo() {
         <div className="caja-crear">
           <div className="caja-crear-textos">
             <p className="titulo">Crear un grupo</p>
-            <form action="" method="post" class="form-crear">
+            <form method="post" class="form-crear" onSubmit={HandleCreacion}>
               <div className="nombre-crear">
                 <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
               </div>
@@ -111,7 +105,6 @@ function CrearGrupo() {
     </html>
   );
 }
-//>>>>>>> a5779422e533a3f629c6fc80341de8dd16e250b6 onClick={HandleCreacion}
 
 export default CrearGrupo;
 

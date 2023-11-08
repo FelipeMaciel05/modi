@@ -1,6 +1,7 @@
 import React from 'react';
 import Buttons from "./Buttons";
 import './styles/boton.css'
+import Cookies from 'js-cookie'
 
 function Login() {
   const handleLogin = (event) => {
@@ -31,8 +32,8 @@ function Login() {
 
               const expires = `expires=${date.toUTCString()}`;
               document.cookie = `token=${token}; ${expires}; path=/`;
-              // setCookie("auth_token", token, 7);
-              // window.location.href = '/';
+              Cookies.set("auth_token", token, 7);
+              window.location.href = '/';
             } else {
               console.log("Token not found in the response.");
             }
