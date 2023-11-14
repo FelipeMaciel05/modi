@@ -59,6 +59,7 @@ function Union() {
                             <div className="completar">
                                 <input type="text" placeholder="Nombre del paciente" name="Ingrese su nombre" id="nombrePaciente" />
                             </div>
+                            <Buttons onClick={handleUnion} />
                             <button type="submit">Unirse</button>
                         </form>
                     </div>
