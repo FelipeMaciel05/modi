@@ -1,8 +1,8 @@
+import Buttons from "./Buttons";
 import Header from "./Header";
 import './styles/unirse.css'
 
 function Union() {
-
     const handleUnion = (event) => {
       // document.getElementById("registro").addEventListener("submit", function (event) {
       event.preventDefault(); // Evitar el envío del formulario por defecto
