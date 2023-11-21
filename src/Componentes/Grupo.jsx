@@ -1,10 +1,58 @@
 import React from 'react';
 import Header from "./Header";
 import './styles/grupo-creado.css'
+import Buttons from "./Buttons";
 
 
-function Grupo(){
-
+function Crear() {
+    const [token, setToken] = useState('');
+  
+    useEffect(() => {
+      // Read the token from the cookie when the component mounts
+      const authToken = Cookies.get('token');
+      if (authToken) {
+        console.log(authToken);
+        setToken(authToken);
+      }
+    }, []);
+  
+    const HandleCreacion = (event) => {
+      console.log("AAAAAAAAAAAA")
+      event.preventDefault();
+      // document.getElementById("registro").addEventListener("submit", function (event) {
+      // Obtener los valores de los campos del formulario
+      var NombreGrupo = document.getElementById("Ngrupo").value;
+      var ContraGrupo = document.getElementById("Cgrupo").value;
+      var DNI = document.getElementById("Dni").value;
+      // Crear un objeto con los datos a enviar al backend
+      var data = {
+        nombreP: NombreGrupo,
+        Contra: ContraGrupo,
+        Dni: DNI,
+      };
+      // Enviar los datos al backend utilizando Fetch
+      fetch('http://localhost:9000/api/CrearGrupo', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            window.location.href = '/';
+            console.log(response)
+          } else {
+            alert("No se a podido Crear")
+          }
+        })
+        .catch(function (error) {
+          console.log(error)
+          alert("No se a podido Crear debido a un error")
+        });
+    };
+  
 
     return(
         <html lang="en">
