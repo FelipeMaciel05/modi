@@ -16,22 +16,30 @@ function Crear() {
       }
     }, []);
   
-    const HandleCreacion = (event) => {
+    const Crear = (event) => {
       console.log("AAAAAAAAAAAA")
       event.preventDefault();
       // document.getElementById("registro").addEventListener("submit", function (event) {
       // Obtener los valores de los campos del formulario
-      var NombreGrupo = document.getElementById("Ngrupo").value;
-      var ContraGrupo = document.getElementById("Cgrupo").value;
-      var DNI = document.getElementById("Dni").value;
+      var DiagnosticoP = document.getElementById("DP").value;
+      var EstudioAux = document.getElementById("EA").value;
+      var IndicacionesMed = document.getElementById("IM").value;
+      var IndicacionesEnf = document.getElementById("IE").value;
+      var EvolucionP = document.getElementById("E").value;
+      var DevolucionP = document.getElementById("D").value;
+    
       // Crear un objeto con los datos a enviar al backend
       var data = {
-        nombreP: NombreGrupo,
-        Contra: ContraGrupo,
-        Dni: DNI,
+        Diagnostico: DiagnosticoP,
+        EstudioA: EstudioAux,
+        IndicacionesM: IndicacionesMed,
+        IndicacionesE: IndicacionesEnf,
+        Evolucion: EvolucionP,
+        Devolucion: DevolucionP,
+
       };
       // Enviar los datos al backend utilizando Fetch
-      fetch('http://localhost:9000/api/CrearGrupo', {
+      fetch('http://localhost:9000/api/Crear', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -78,22 +86,22 @@ function Crear() {
                                     <p>Medico Cabecera</p>
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Diagnostico" />
+                                    <input type="text" placeholder="Diagnostico" id="DP" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Estudio Auxiliares" />
+                                    <input type="text" placeholder="Estudio Auxiliares" id="EA" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Indicaciones Medicas" />
+                                    <input type="text" placeholder="Indicaciones Medicas" id="IM" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Indicaciones Enfermeria" />
+                                    <input type="text" placeholder="Indicaciones Enfermeria" id="IE" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Evolucion" />
+                                    <input type="text" placeholder="Evolucion" id="E" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Devolucion al familiar " />
+                                    <input type="text" placeholder="Devolucion al familiar "id="D" />
                                 </div>
                                 <div className="caja-input">
                                     <input type="submit" value="Enviar" />
@@ -169,6 +177,8 @@ function Crear() {
                                     <div className="caja-input">
                                         <input type="submit" value="Enviar" />
                                     </div>
+                                    <Buttons onClick={handleCrear} />
+
                                 </div>
                             </form>
                         </div>
