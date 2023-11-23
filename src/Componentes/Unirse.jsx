@@ -1,8 +1,55 @@
+import Buttons from "./Buttons";
 import Header from "./Header";
 import './styles/unirse.css'
+import { useState } from "react";
+import { useEffect } from "react";
+//import Cookies from 'js-cookie';
 
-function Unirse(){
 
+function Union() {
+  const [token, setToken] = useState('');
+
+  /*/useEffect(() => {
+    // Read the token from the cookie when the component mounts
+    const authToken = Cookies.get('token');
+    if (authToken) {
+      console.log(authToken);
+      setToken(authToken);
+    }
+    }, []);/*/
+
+    const handleUnion = (event) => {
+      // document.getElementById("registro").addEventListener("submit", function (event) {
+      event.preventDefault(); // Evitar el envío del formulario por defecto
+      // Obtener los valores de los campos del formulario
+      var ContraG = document.getElementById("contraGrupo").value;
+      var NombreP = document.getElementById("nombrePaciente").value;
+      // Crear un objeto con los datos a enviar al backend
+      var data = {
+        nombreG: NombreP,
+        Contra: ContraG,
+      };
+      // Enviar los datos al backend utilizando Fetch
+      fetch('http://localhost:9000/api/UnirseGrupo', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(function (response) {
+        if (response.ok) {
+          window.location.href = '/';
+            console.log(response)
+          } else {
+            alert("No se a podido Registrar")
+          }
+        })
+        .catch(function (error) {
+          alert("No se a podido Registrar debido a un error")
+        });
+    };
+  
     return(
         <html lang="en">
         <head>
@@ -22,11 +69,12 @@ function Unirse(){
                         <p>Unirse a un grupo</p>
                         <form action="" method="post" className="form-unirse">
                             <div className="completar">
-                                <input type="password" placeholder="Contraseña del grupo" name="Ingrese su nombre" id="" />
+                                <input type="password" placeholder="Contraseña del grupo" name="Ingrese su nombre" id="contraGrupo" />
                             </div>
                             <div className="completar">
-                                <input type="text" placeholder="Nombre del paciente" name="Ingrese su nombre" id="" />
+                                <input type="text" placeholder="Nombre del paciente" name="Ingrese su nombre" id="nombrePaciente" />
                             </div>
+                            <Buttons onClick={handleUnion} />
                             <button type="submit">Unirse</button>
                         </form>
                     </div>
@@ -37,4 +85,4 @@ function Unirse(){
     );
 }
 
-export default Unirse;
+export default Union;
