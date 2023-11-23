@@ -42,7 +42,7 @@ function Crear() {
 
         };
         // Enviar los datos al backend utilizando Fetch
-        fetch('http://localhost:9000/api/Crear', {
+        fetch('http://localhost:9000/api/MeterInfo', {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -64,7 +64,45 @@ function Crear() {
             });
     };
 
+    function VerInformacion() {
+        const [token, setToken] = useState('');
+    
+        useEffect(() => {
+            // Read the token from the cookie when the component mounts
+            const authToken = Cookies.get('token');
+            if (authToken) {
+                console.log(authToken);
+                setToken(authToken);
+            }
+        }, []);
+    
+        const handleVer = (event) => {
+            event.preventDefault();
+            console.log("AAAAAAAAAAAA")
+            // Enviar los datos al backend utilizando Fetch
+            fetch('http://localhost:9000/api/InfoGrupo', {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        window.location.href = '/';
+                        console.log(response)
+                    } else {
+                        alert("No se a podido ver")
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    alert("No se a podido ver debido a un error")
+                });
+        };
 
+    
     return (
         <html lang="en">
             <head>
@@ -181,6 +219,7 @@ function Crear() {
                                             <input type="submit" value="Enviar" />
                                         </div>
                                         <Buttons onClick={handleCrear} />
+                                        <Buttons onClick={handleVer} />
 
                                     </div>
                                 </form>
