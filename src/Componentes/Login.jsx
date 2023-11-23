@@ -19,7 +19,7 @@ function Login() {
         "Content-Type": "application/json"
       }
     })
-      .then(function (response) {
+      /*/.then(function (response) {
         if (response.ok) {
           response.json().then((data) => {
             const token = data.token;
@@ -44,7 +44,7 @@ function Login() {
       })
       .catch(function (error) {
         alert("No se a podido Iniciar Sesion debido a un error")
-      });
+      });/*/
 
   };
   return (
@@ -68,7 +68,7 @@ function Login() {
           </div>
           <div className="cajaderecha">
             <div className="login">
-              <form action="" method="post">
+              <form action="" method="">
                 <h1>Log In</h1>
                 <div className="email">
                   <input type="email" name="usuario" placeholder="Correo Electronico" id="Mail" />
@@ -76,7 +76,7 @@ function Login() {
                 <div className="password">
                   <input type="password" name="password" placeholder="Contraseña" id="Contraseniaa" />
                 </div>
-                <Buttons onClick={handleLogin} />
+                <Buttons/>
                 <div className="text">
                   <p>
                     ¿No tienes cuenta? <a href="/Register">Registrate</a>

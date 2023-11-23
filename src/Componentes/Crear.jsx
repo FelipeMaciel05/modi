@@ -77,7 +77,7 @@ function CrearGrupo() {
         <div className="caja-crear">
           <div className="caja-crear-textos">
             <p className="titulo">Crear un grupo</p>
-            <form action="" method="post" class="form-crear">
+            <form action="" method="" class="form-crear">
               <div className="nombre-crear">
                 <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
               </div>
@@ -103,7 +103,7 @@ function CrearGrupo() {
                 <p for="ticketNum">Psicologos:</p>
                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
               </div>
-              <button type="submit" >Crear Grupo</button>
+              <a href="/Grupo">Crear Grupo</a>
             </form>
           </div>
         </div>
