@@ -1,23 +1,30 @@
 import Header from "./Header";
 import './styles/crear.css'
 //import Cookies from 'js-cookie';
-import { useState } from "react";
 
 function CrearGrupo() {
-  const [token, setToken] = useState('');
+  /*/const [token, setToken] = useState('');
 
-  /*/useEffect(() => {
+  useEffect(() => {
     // Read the token from the cookie when the component mounts
     const authToken = Cookies.get('token');
     if (authToken) {
       console.log(authToken);
       setToken(authToken);
     }
-  }, []);/*/
+  }, []);
 
   const HandleCreacion = (event) => {
-    console.log("AAAAAAAAAAAA")
-    event.preventDefault();
+    const [token, setToken] = useState('');
+
+    useEffect(() => {
+      // Read the token from the cookie when the component mounts
+      const authToken = Cookies.get('token');
+  
+      if (authToken) {
+        setToken(authToken);
+      }
+    }, []);
     // document.getElementById("registro").addEventListener("submit", function (event) {
     // Obtener los valores de los campos del formulario
     var NombreGrupo = document.getElementById("Ngrupo").value;
@@ -40,7 +47,7 @@ function CrearGrupo() {
     })
       .then(function (response) {
         if (response.ok) {
-          window.location.href = '/';
+          // window.location.href = '/';
           console.log(response)
         } else {
           alert("No se a podido Crear")
@@ -50,7 +57,7 @@ function CrearGrupo() {
         console.log(error)
         alert("No se a podido Crear debido a un error")
       });
-  };
+  };/*/
 
   return (
     <html lang="en">
@@ -70,7 +77,7 @@ function CrearGrupo() {
         <div className="caja-crear">
           <div className="caja-crear-textos">
             <p className="titulo">Crear un grupo</p>
-            <form action="" method="" class="form-crear">
+            <form action="" method="post" class="form-crear">
               <div className="nombre-crear">
                 <input type="text" placeholder="Nombre del paciente" id="Ngrupo" />
               </div>
@@ -96,7 +103,7 @@ function CrearGrupo() {
                 <p for="ticketNum">Psicologos:</p>
                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
               </div>
-              <a href="/Grupo">Crear Grupo</a>
+              <button type="submit" >Crear Grupo</button>
             </form>
           </div>
         </div>
@@ -104,6 +111,7 @@ function CrearGrupo() {
     </html>
   );
 }
+//>>>>>>> a5779422e533a3f629c6fc80341de8dd16e250b6 onClick={HandleCreacion}
 
 export default CrearGrupo;
 

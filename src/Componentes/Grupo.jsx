@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import './styles/grupo-creado.css'
 import Buttons from "./Buttons";
-//import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -10,14 +10,14 @@ import { useEffect } from "react";
 function Crear() {
     const [token, setToken] = useState('');
   
-    /*/useEffect(() => {
+    useEffect(() => {
       // Read the token from the cookie when the component mounts
       const authToken = Cookies.get('token');
       if (authToken) {
         console.log(authToken);
         setToken(authToken);
       }
-    }, []);/*/
+    }, []);
   
     const handleCrear = (event) => {
       console.log("AAAAAAAAAAAA")

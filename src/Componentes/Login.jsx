@@ -1,7 +1,6 @@
 import React from 'react';
 import Buttons from "./Buttons";
 import './styles/boton.css'
-//import Cookies from 'js-cookie'
 
 function Login() {
   const handleLogin = (event) => {
@@ -20,7 +19,7 @@ function Login() {
         "Content-Type": "application/json"
       }
     })
-      /*/.then(function (response) {
+      .then(function (response) {
         if (response.ok) {
           response.json().then((data) => {
             const token = data.token;
@@ -32,8 +31,8 @@ function Login() {
 
               const expires = `expires=${date.toUTCString()}`;
               document.cookie = `token=${token}; ${expires}; path=/`;
-              Cookies.set("auth_token", token, 7);
-              window.location.href = '/';
+              // setCookie("auth_token", token, 7);
+              // window.location.href = '/';
             } else {
               console.log("Token not found in the response.");
             }
@@ -45,7 +44,7 @@ function Login() {
       })
       .catch(function (error) {
         alert("No se a podido Iniciar Sesion debido a un error")
-      });/*/
+      });
 
   };
   return (
@@ -69,7 +68,7 @@ function Login() {
           </div>
           <div className="cajaderecha">
             <div className="login">
-              <form action="" method="">
+              <form action="" method="post">
                 <h1>Log In</h1>
                 <div className="email">
                   <input type="email" name="usuario" placeholder="Correo Electronico" id="Mail" />
@@ -77,7 +76,7 @@ function Login() {
                 <div className="password">
                   <input type="password" name="password" placeholder="Contraseña" id="Contraseniaa" />
                 </div>
-                <Buttons/>
+                <Buttons onClick={handleLogin} />
                 <div className="text">
                   <p>
                     ¿No tienes cuenta? <a href="/Register">Registrate</a>
