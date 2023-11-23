@@ -3,6 +3,8 @@ import './styles/crear.css'
 import Cookies from 'js-cookie';
 import { useState } from "react";
 import { useEffect } from "react";
+import Buttons from "./Buttons";
+
 
 function CrearGrupo() {
   const [token, setToken] = useState('');
@@ -17,18 +19,11 @@ function CrearGrupo() {
   }, []);
 
   const HandleCreacion = (event) => {
-    const [token, setToken] = useState('');
-
-    useEffect(() => {
-      // Read the token from the cookie when the component mounts
-      const authToken = Cookies.get('token');
-  
-      if (authToken) {
-        setToken(authToken);
-      }
-    }, []);
+ 
     // document.getElementById("registro").addEventListener("submit", function (event) {
     // Obtener los valores de los campos del formulario
+    event.preventDefault(); // Evitar el envío del formulario por defecto
+    console.log("AAAA")
     var NombreGrupo = document.getElementById("Ngrupo").value;
     var ContraGrupo = document.getElementById("Cgrupo").value;
     var DNI = document.getElementById("Dni").value;
@@ -105,10 +100,10 @@ function CrearGrupo() {
                 <p for="ticketNum">Psicologos:</p>
                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
               </div>
-              buttons onClick={HandleCreacion}
               <button type="submit" >Crear Grupo</button>
             </form>
           </div>
+          <Buttons onClick={HandleCreacion}/>
         </div>
       </body>
     </html>
