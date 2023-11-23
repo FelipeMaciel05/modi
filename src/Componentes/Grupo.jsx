@@ -81,8 +81,7 @@ function Crear() {
             console.log("AAAAAAAAAAAA")
             // Enviar los datos al backend utilizando Fetch
             fetch('http://localhost:9000/api/InfoGrupo', {
-                method: "POST",
-                body: JSON.stringify(data),
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": "Bearer " + token
@@ -101,7 +100,7 @@ function Crear() {
                     alert("No se a podido ver debido a un error")
                 });
         };
-
+    
     
     return (
         <html lang="en">
@@ -230,6 +229,7 @@ function Crear() {
             </body>
         </html>
     );
+}
 }
 
 export default Crear;
