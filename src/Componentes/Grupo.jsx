@@ -2,6 +2,9 @@ import React from 'react';
 import Header from "./Header";
 import './styles/grupo-creado.css'
 import Buttons from "./Buttons";
+import Cookies from 'js-cookie'
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 function Crear() {
@@ -16,7 +19,7 @@ function Crear() {
       }
     }, []);
   
-    const Crear = (event) => {
+    const handleCrear = (event) => {
       console.log("AAAAAAAAAAAA")
       event.preventDefault();
       // document.getElementById("registro").addEventListener("submit", function (event) {
@@ -190,4 +193,4 @@ function Crear() {
     );
 }
 
-export default Grupo;
+export default Crear;

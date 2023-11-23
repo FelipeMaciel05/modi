@@ -1,8 +1,23 @@
 import Buttons from "./Buttons";
 import Header from "./Header";
 import './styles/unirse.css'
+import { useState } from "react";
+import { useEffect } from "react";
+import Cookies from 'js-cookie';
+
 
 function Union() {
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    // Read the token from the cookie when the component mounts
+    const authToken = Cookies.get('token');
+    if (authToken) {
+      console.log(authToken);
+      setToken(authToken);
+    }
+    }, []);
+
     const handleUnion = (event) => {
       // document.getElementById("registro").addEventListener("submit", function (event) {
       event.preventDefault(); // Evitar el envío del formulario por defecto
