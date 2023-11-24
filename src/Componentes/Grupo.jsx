@@ -2,22 +2,48 @@ import React from 'react';
 import Header from "./Header";
 import './styles/grupo-creado.css'
 import Buttons from "./Buttons";
-//import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 import { useState } from "react";
 import { useEffect } from "react";
 
 
 function Crear() {
-    const [token, setToken] = useState('');
-  
-    /*/useEffect(() => {
-      // Read the token from the cookie when the component mounts
-      const authToken = Cookies.get('token');
-      if (authToken) {
-        console.log(authToken);
-        setToken(authToken);
-      }
-    }, []);/*/
+    function VerInformacion() {
+        const [token, setToken] = useState('');
+    
+       useEffect(() => {
+            // Read the token from the cookie when the component mounts
+            const authToken = Cookies.get('token');
+            if (authToken) {
+                console.log(authToken);
+                setToken(authToken);
+            }
+        }, []);
+    
+        const handleVer = (event) => {
+            event.preventDefault();
+            console.log("AAAAAAAAAAAA")
+            // Enviar los datos al backend utilizando Fetch
+            fetch('http://localhost:9000/api/InfoGrupo', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        window.location.href = '/';
+                        console.log(response)
+                    } else {
+                        alert("No se a podido ver")
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    alert("No se a podido ver debido a un error")
+                });
+        };
   
     const handleCrear = (event) => {
       console.log("AAAAAAAAAAAA")
@@ -49,21 +75,53 @@ function Crear() {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         }
-      })
-        .then(function (response) {
-          if (response.ok) {
-            window.location.href = '/';
-            console.log(response)
-          } else {
-            alert("No se a podido Crear")
-          }
+    }, []);
+
+    const handleCrear = (event) => {
+        event.preventDefault();
+        console.log("AAAAAAAAAAAA")
+        // document.getElementById("registro").addEventListener("submit", function (event) {
+        // Obtener los valores de los campos del formulario
+        var DiagnosticoP = document.getElementById("DP").value;
+        var EstudioAux = document.getElementById("EA").value;
+        var IndicacionesMed = document.getElementById("IM").value;
+        var IndicacionesEnf = document.getElementById("IE").value;
+        var EvolucionP = document.getElementById("E").value;
+        var DevolucionP = document.getElementById("D").value;
+
+        // Crear un objeto con los datos a enviar al backend
+        var data = {
+            Diagnostico: DiagnosticoP,
+            EstudioA: EstudioAux,
+            IndicacionesM: IndicacionesMed,
+            IndicacionesE: IndicacionesEnf,
+            Evolucion: EvolucionP,
+            Devolucion: DevolucionP,
+
+        };
+        // Enviar los datos al backend utilizando Fetch
+        fetch('http://localhost:9000/api/MeterInfo', {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+                //"Authorization": "Bearer " + token
+            }
         })
-        .catch(function (error) {
-          console.log(error)
-          alert("No se a podido Crear debido a un error")
-        });
+            .then(function (response) {
+                if (response.ok) {
+                    window.location.href = '/';
+                    console.log(response)
+                } else {
+                    alert("No se a podido Crear")
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert("No se a podido Crear debido a un error")
+            });
     };
-  
+
     let isLoggedIn = true;
      
     return(
@@ -155,42 +213,31 @@ function Crear() {
                                             <p>AKR<input type="radio" name="check" id="" /></p>
                                         </div>
                                     </div>
-                                    <div className="caja-input">
-                                        <input type="text" placeholder="Evolucion" />
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="text" placeholder="Devolucion al familiar" />
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="submit" value="Enviar" />
-                                    </div>
                                 </div>
-                            </form>
+                                </form>
+                            </div>
+                            <div className="caja-enfermera">
+                                <form method="post" className="form-de-grupo-creado">
+                                    <div className="enfermera">
+                                        <div className="texto">
+                                            <p>Enfermera</p>
+                                        </div>
+                                        <div className="caja-input">
+                                            <input type="text" placeholder="Indicaciones Medicas" />
+                                        </div>
+                                        <div className="caja-input">
+                                            <input type="text" placeholder="Evolucion" />
+                                        </div>
+                                        <div className="caja-input">
+                                            <input type="text" placeholder="Devolucion al familiar" />
+                                        </div>
+                                        <div className="caja-input">
+                                            <input type="submit" value="Enviar" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div className="caja-psicologo">
-                            <form method="post" className="form-de-grupo-creado">
-                                <div className="psicologo">
-                                    <div className="texto">
-                                        <p>Psicologo</p>
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="text" placeholder="Interconsulta" />
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="text" placeholder="Evolucion" />
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="text" placeholder="Devolucion al familiar" />
-                                    </div>
-                                    <div className="caja-input">
-                                        <input type="submit" value="Enviar" />
-                                    </div>
-                                    <Buttons onClick={handleCrear} />
-
-                                </div>
-                            </form>
-                        </div>     
-                    </div>
                     </>): 
                     (
                     <>
@@ -203,9 +250,10 @@ function Crear() {
                     
                 </div>
             </div>
-        </body>
+            </body>
         </html>
     );
 }
-
+}
+}
 export default Crear;

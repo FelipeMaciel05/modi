@@ -31,8 +31,8 @@ function Login() {
 
               const expires = `expires=${date.toUTCString()}`;
               document.cookie = `token=${token}; ${expires}; path=/`;
-              // setCookie("auth_token", token, 7);
-              // window.location.href = '/';
+             // setCookie("auth_token", token, 7);
+               window.location.href = '/';
             } else {
               console.log("Token not found in the response.");
             }
