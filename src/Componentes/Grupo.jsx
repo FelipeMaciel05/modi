@@ -7,9 +7,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Grupo() {
-    
+    const [EsMedico, setEsMedico] = useState(null);
+    const [Sinopsis, setSinopsis] = useState(null);
     const [token, setToken] = useState('');
-
+    useEffect(() => {
+        handleCheckMedic();
+    }, []); 
     useEffect(() => {
         // Read the token from the cookie when the component mounts
         const authToken = Cookies.get('token');
@@ -62,6 +65,7 @@ function Grupo() {
             .then(data => {
                 // Log the parsed data
                 console.log(data);
+                
             });
     };
 
@@ -91,7 +95,6 @@ function Grupo() {
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
-                    window.location.href = '/';
                 } else {
                     alert("No se a podido ver");
                 }
@@ -100,7 +103,10 @@ function Grupo() {
             .then(data => {
                 // Log the parsed data
                 console.log(data);
-                const Sinopsis = data.sinopsis;
+                const SinopsisValue = data.sinopsis;
+                setSinopsis(SinopsisValue);
+                console.log(SinopsisValue);
+
             });
     };
 
@@ -113,11 +119,12 @@ function Grupo() {
             if (authToken) {
                 console.log(authToken);
                 setToken(authToken);
+                
             }
         }, []);
-
-        const handleCheckMedic = (event) => {
-            event.preventDefault();
+       
+        };  
+        const handleCheckMedic = () => {
             console.log("AAAAAAAAAAAA");
             // Enviar los datos al backend utilizando Fetch
             fetch('http://localhost:9000/api/CheckM', {
@@ -130,7 +137,6 @@ function Grupo() {
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
-                    window.location.href = '/';
                 } else {
                     alert("No se a podido checkear");
                 }
@@ -139,14 +145,14 @@ function Grupo() {
             .then(data => {
                 // Log the parsed data
                 console.log(data);
-                const EsMedico = data.queES
-            });
-    };}
+                const EsMedicoValue = data.queEs
+                setEsMedico(EsMedicoValue);
+                console.log(EsMedicoValue);
+            }); 
+}
 
+console.log(EsMedico);
 
-
-    let isLoggedIn = true;
-     
     return(
         <html lang="en">
         <head>
@@ -165,7 +171,7 @@ function Grupo() {
             <div className="grupo-total">
                 <div className="caja-medicos-total">
 
-                {isLoggedIn ? (
+                {EsMedico ? (
                 <>
                 <div className="primero">
                     <div className="caja-medico-cabecera">
