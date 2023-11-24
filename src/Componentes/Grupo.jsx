@@ -6,8 +6,10 @@ import Cookies from 'js-cookie'
 import { useState } from "react";
 import { useEffect } from "react";
 
-function CheckMedic() {
+function Crear() {
+    
     const [token, setToken] = useState('');
+
 
     useEffect(() => {
         // Read the token from the cookie when the component mounts
@@ -18,12 +20,35 @@ function CheckMedic() {
         }
     }, []);
 
-    const handleCheckMedic = (event) => {
+
+    const handleCrear = (event) => {
         event.preventDefault();
         console.log("AAAAAAAAAAAA")
+        // document.getElementById("registro").addEventListener("submit", function (event) {
+        // Obtener los valores de los campos del formulario
+        var DiagnosticoP = document.getElementById("DP").value;
+        var EstudioAux = document.getElementById("EA").value;
+        var IndicacionesMed = document.getElementById("IM").value;
+        var IndicacionesEnf = document.getElementById("IE").value;
+        var EvolucionP = document.getElementById("E").value;
+        var DevolucionP = document.getElementById("D").value;
+
+
+        // Crear un objeto con los datos a enviar al backend
+        var data = {
+            Diagnostico: DiagnosticoP,
+            EstudioA: EstudioAux,
+            IndicacionesM: IndicacionesMed,
+            IndicacionesE: IndicacionesEnf,
+            Evolucion: EvolucionP,
+            Devolucion: DevolucionP,
+
+
+        };
         // Enviar los datos al backend utilizando Fetch
-        fetch('http://localhost:9000/api/CheckM', {
-            method: "GET",
+        fetch('http://localhost:9000/api/MeterInfo', {
+            method: "POST",
+            body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + token
@@ -31,25 +56,23 @@ function CheckMedic() {
         })
             .then(function (response) {
                 if (response.ok) {
-                    console.log(response)
-                    console.log(da)
                     window.location.href = '/';
-
-
+                    console.log(response)
                 } else {
-                    alert("No se a podido ver")
+                    alert("No se a podido Crear")
                 }
             })
             .catch(function (error) {
                 console.log(error)
-                alert("No se a podido ver debido a un error")
+                alert("No se a podido Crear debido a un error")
             });
     };
-function Crear() {
+
+
     function VerInformacion() {
         const [token, setToken] = useState('');
-    
-       useEffect(() => {
+   
+        useEffect(() => {
             // Read the token from the cookie when the component mounts
             const authToken = Cookies.get('token');
             if (authToken) {
@@ -57,7 +80,7 @@ function Crear() {
                 setToken(authToken);
             }
         }, []);
-    
+   
         const handleVer = (event) => {
             event.preventDefault();
             console.log("AAAAAAAAAAAA")
@@ -76,6 +99,8 @@ function Crear() {
                         window.location.href = '/';
 
 
+
+
                     } else {
                         alert("No se a podido ver")
                     }
@@ -85,38 +110,57 @@ function Crear() {
                     alert("No se a podido ver debido a un error")
                 });
         };
-  
-    const handleCrear = (event) => {
-      console.log("AAAAAAAAAAAA")
-      event.preventDefault();
-      // document.getElementById("registro").addEventListener("submit", function (event) {
-      // Obtener los valores de los campos del formulario
-      var DiagnosticoP = document.getElementById("DP").value;
-      var EstudioAux = document.getElementById("EA").value;
-      var IndicacionesMed = document.getElementById("IM").value;
-      var IndicacionesEnf = document.getElementById("IE").value;
-      var EvolucionP = document.getElementById("E").value;
-      var DevolucionP = document.getElementById("D").value;
-    
-      // Crear un objeto con los datos a enviar al backend
-      var data = {
-        Diagnostico: DiagnosticoP,
-        EstudioA: EstudioAux,
-        IndicacionesM: IndicacionesMed,
-        IndicacionesE: IndicacionesEnf,
-        Evolucion: EvolucionP,
-        Devolucion: DevolucionP,
+        function CheckMedic() {
+            const [token, setToken] = useState('');
+       
+            useEffect(() => {
+                // Read the token from the cookie when the component mounts
+                const authToken = Cookies.get('token');
+                if (authToken) {
+                    console.log(authToken);
+                    setToken(authToken);
+                }
+            }, []);
+       
+            const handleCheckMedic = (event) => {
+                event.preventDefault();
+                console.log("AAAAAAAAAAAA")
+                // Enviar los datos al backend utilizando Fetch
+                fetch('http://localhost:9000/api/CheckM', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
+                    }
+                })
+                    .then(function (response) {
+                        if (response.ok) {
+                            console.log(response)
+                            console.log(da)
+                            window.location.href = '/';
+       
+       
+                        } else {
+                            alert("No se a podido ver")
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                        alert("No se a podido ver debido a un error")
+                    });
+            };
+const [token, setToken] = useState('');
 
-      };
-      // Enviar los datos al backend utilizando Fetch
-      fetch('http://localhost:9000/api/Crear', {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + token
+
+    useEffect(() => {
+        // Read the token from the cookie when the component mounts
+        const authToken = Cookies.get('token');
+        if (authToken) {
+            console.log(authToken);
+            setToken(authToken);
         }
     }, []);
+
 
     const handleCrear = (event) => {
         event.preventDefault();
@@ -130,6 +174,7 @@ function Crear() {
         var EvolucionP = document.getElementById("E").value;
         var DevolucionP = document.getElementById("D").value;
 
+
         // Crear un objeto con los datos a enviar al backend
         var data = {
             Diagnostico: DiagnosticoP,
@@ -139,6 +184,7 @@ function Crear() {
             Evolucion: EvolucionP,
             Devolucion: DevolucionP,
 
+
         };
         // Enviar los datos al backend utilizando Fetch
         fetch('http://localhost:9000/api/MeterInfo', {
@@ -146,7 +192,7 @@ function Crear() {
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
-                //"Authorization": "Bearer " + token
+                "Authorization": "Bearer " + token
             }
         })
             .then(function (response) {
@@ -162,6 +208,89 @@ function Crear() {
                 alert("No se a podido Crear debido a un error")
             });
     };
+
+
+    function VerInformacion() {
+        const [token, setToken] = useState('');
+   
+        useEffect(() => {
+            // Read the token from the cookie when the component mounts
+            const authToken = Cookies.get('token');
+            if (authToken) {
+                console.log(authToken);
+                setToken(authToken);
+            }
+        }, []);
+   
+        const handleVer = (event) => {
+            event.preventDefault();
+            console.log("AAAAAAAAAAAA")
+            // Enviar los datos al backend utilizando Fetch
+            fetch('http://localhost:9000/api/InfoGrupo', {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                }
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log(response)
+                        console.log(data)
+                        window.location.href = '/';
+
+
+
+
+                    } else {
+                        alert("No se a podido ver")
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    alert("No se a podido ver debido a un error")
+                });
+        };
+        function CheckMedic() {
+            const [token, setToken] = useState('');
+       
+            useEffect(() => {
+                // Read the token from the cookie when the component mounts
+                const authToken = Cookies.get('token');
+                if (authToken) {
+                    console.log(authToken);
+                    setToken(authToken);
+                }
+            }, []);
+       
+            const handleCheckMedic = (event) => {
+                event.preventDefault();
+                console.log("AAAAAAAAAAAA")
+                // Enviar los datos al backend utilizando Fetch
+                fetch('http://localhost:9000/api/CheckM', {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + token
+                    }
+                })
+                    .then(function (response) {
+                        if (response.ok) {
+                            console.log(response)
+                            console.log(da)
+                            window.location.href = '/';
+       
+       
+                        } else {
+                            alert("No se a podido ver")
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                        alert("No se a podido ver debido a un error")
+                    });
+            };
+
 
     let isLoggedIn = true;
      
