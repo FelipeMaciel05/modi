@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import './styles/grupo-creado.css'
 import Buttons from "./Buttons";
-import Cookies from 'js-cookie'
+//import Cookies from 'js-cookie'
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -10,14 +10,14 @@ import { useEffect } from "react";
 function Crear() {
     const [token, setToken] = useState('');
   
-    useEffect(() => {
+    /*/useEffect(() => {
       // Read the token from the cookie when the component mounts
       const authToken = Cookies.get('token');
       if (authToken) {
         console.log(authToken);
         setToken(authToken);
       }
-    }, []);
+    }, []);/*/
   
     const handleCrear = (event) => {
       console.log("AAAAAAAAAAAA")
@@ -64,7 +64,8 @@ function Crear() {
         });
     };
   
-
+    let isLoggedIn = true;
+     
     return(
         <html lang="en">
         <head>
@@ -78,10 +79,14 @@ function Crear() {
         </head>
         <body>
             <Header />
+        
 
             <div className="grupo-total">
                 <div className="caja-medicos-total">
-                    <div className="primero">
+
+                {isLoggedIn ? (
+                <>
+                <div className="primero">
                     <div className="caja-medico-cabecera">
                         <form method="post" className="form-de-grupo-creado">
                             <div className="medico-cabecera">
@@ -104,7 +109,7 @@ function Crear() {
                                     <input type="text" placeholder="Evolucion" id="E" />
                                 </div>
                                 <div className="caja-input">
-                                    <input type="text" placeholder="Devolucion al familiar "id="D" />
+                                    <input type="text" placeholder="Devolucion al familiar" id="D" />
                                 </div>
                                 <div className="caja-input">
                                     <input type="submit" value="Enviar" />
@@ -184,8 +189,18 @@ function Crear() {
 
                                 </div>
                             </form>
-                        </div>
+                        </div>     
                     </div>
+                    </>): 
+                    (
+                    <>
+                    <h1>sos familiar unu</h1>
+                    <div className="medico-cabecera">
+                        
+                    </div>
+                    </>
+                    )}
+                    
                 </div>
             </div>
         </body>

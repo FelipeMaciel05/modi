@@ -3,7 +3,7 @@ import Header from "./Header";
 import './styles/unirse.css'
 import { useState } from "react";
 import { useEffect } from "react";
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 
 function Union() {
@@ -11,11 +11,11 @@ function Union() {
 
   useEffect(() => {
     // Read the token from the cookie when the component mounts
-    const authToken = Cookies.get('token');
-    if (authToken) {
+    //const authToken = Cookies.get('token');
+    /*/if (authToken) {
       console.log(authToken);
       setToken(authToken);
-    }
+    }/*/
     }, []);
 
     const handleUnion = (event) => {
