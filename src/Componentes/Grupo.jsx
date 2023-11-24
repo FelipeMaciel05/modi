@@ -6,7 +6,45 @@ import Cookies from 'js-cookie'
 import { useState } from "react";
 import { useEffect } from "react";
 
+function CheckMedic() {
+    const [token, setToken] = useState('');
 
+    useEffect(() => {
+        // Read the token from the cookie when the component mounts
+        const authToken = Cookies.get('token');
+        if (authToken) {
+            console.log(authToken);
+            setToken(authToken);
+        }
+    }, []);
+
+    const handleCheckMedic = (event) => {
+        event.preventDefault();
+        console.log("AAAAAAAAAAAA")
+        // Enviar los datos al backend utilizando Fetch
+        fetch('http://localhost:9000/api/CheckM', {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + token
+            }
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    console.log(response)
+                    console.log(da)
+                    window.location.href = '/';
+
+
+                } else {
+                    alert("No se a podido ver")
+                }
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert("No se a podido ver debido a un error")
+            });
+    };
 function Crear() {
     function VerInformacion() {
         const [token, setToken] = useState('');
@@ -33,8 +71,11 @@ function Crear() {
             })
                 .then(function (response) {
                     if (response.ok) {
-                        window.location.href = '/';
                         console.log(response)
+                        console.log(data)
+                        window.location.href = '/';
+
+
                     } else {
                         alert("No se a podido ver")
                     }
