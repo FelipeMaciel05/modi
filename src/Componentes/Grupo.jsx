@@ -13,19 +13,19 @@ function Grupo() {
     useEffect(() => {
         handleCheckMedic();
     }, []); 
+
     useEffect(() => {
         // Read the token from the cookie when the component mounts
         const authToken = Cookies.get('token');
         if (authToken) {
-            console.log(authToken);
             setToken(authToken);
         }
     }, []);
-
+    useEffect(() => {
+        console.log("EsMedico has changed:", EsMedico);
+    }, [EsMedico]);
     const handleCrear = (event) => {
         event.preventDefault();
-        console.log("AAAAAAAAAAAA");
-
         // Obtener los valores de los campos del formulario
         var DiagnosticoP = document.getElementById("DP").value;
         var EstudioAux = document.getElementById("EA").value;
@@ -64,8 +64,7 @@ function Grupo() {
             .then(response => response.json()) // or response.json() for JSON data
             .then(data => {
                 // Log the parsed data
-                console.log(data);
-                
+                console.log(data); 
             });
     };
 
@@ -76,14 +75,12 @@ function Grupo() {
             // Read the token from the cookie when the component mounts
             const authToken = Cookies.get('token');
             if (authToken) {
-                console.log(authToken);
                 setToken(authToken);
             }
         }, []);
     }
     const handleVer = (event) => {
         event.preventDefault();
-        console.log("AAAAAAAAAAAA");
         // Enviar los datos al backend utilizando Fetch
         fetch('http://localhost:9000/api/InfoGrupo', {
             method: "GET",
@@ -94,19 +91,16 @@ function Grupo() {
         })
             .then(function (response) {
                 if (response.ok) {
-                    console.log(response);
-                } else {
+                    return response.json()
+                } 
+                    else {
                     alert("No se a podido ver");
                 }
             })
-            .then(response => response.json()) // or response.json() for JSON data
             .then(data => {
                 // Log the parsed data
-                console.log(data);
                 const SinopsisValue = data.sinopsis;
                 setSinopsis(SinopsisValue);
-                console.log(SinopsisValue);
-
             });
     };
 
@@ -117,15 +111,12 @@ function Grupo() {
             // Read the token from the cookie when the component mounts
             const authToken = Cookies.get('token');
             if (authToken) {
-                console.log(authToken);
                 setToken(authToken);
-                
             }
         }, []);
        
         };  
         const handleCheckMedic = () => {
-            console.log("AAAAAAAAAAAA");
             // Enviar los datos al backend utilizando Fetch
             fetch('http://localhost:9000/api/CheckM', {
                 method: "GET",
@@ -136,23 +127,21 @@ function Grupo() {
             })
             .then(function (response) {
                 if (response.ok) {
-                    console.log(response);
+                    return response.json()
                 } else {
-                    alert("No se a podido checkear");
+                    throw new Error('Network response was not ok.');
                 }
             })
-            .then(response => response.json()) // or response.json() for JSON data
             .then(data => {
                 // Log the parsed data
                 console.log(data);
-                const EsMedicoValue = data.queEs
+                const EsMedicoValue = data.queEs;
                 setEsMedico(EsMedicoValue);
-                console.log(EsMedicoValue);
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
             }); 
-}
-
-console.log(EsMedico);
-
+} 
     return(
         <html lang="en">
         <head>
