@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 function Grupo() {
     const [EsMedico, setEsMedico] = useState(false);
-    const [Sinopsis, setSinopsis] = useState("Loading...");
+    const [Sinopsis, setSinopsis] = useState("Apreta el boton para ver informacion");
     const [token, setToken] = useState('');
     useEffect(() => {
         handleCheckMedic();     
@@ -191,9 +191,6 @@ useEffect(() => {
                                 <div className="caja-input">
                                     <input type="text" placeholder="Devolucion al familiar" id="D" />
                                 </div>
-                                <div className="caja-input">
-                                    <input type="submit" value="Enviar" />
-                                </div>
                             </div>
                         </form>
                     </div>
@@ -211,9 +208,6 @@ useEffect(() => {
                                 </div>
                                 <div className="caja-input">
                                     <input type="text" placeholder="Devolucion al familiar" />
-                                </div>
-                                <div className="caja-input">
-                                    <input type="submit" value="Enviar" />
                                 </div>
                             </div>
                         </form>
@@ -242,7 +236,7 @@ useEffect(() => {
                                 <form method="post" className="form-de-grupo-creado">
                                     <div className="enfermera">
                                         <div className="texto">
-                                            <p>Enfermera</p>
+                                            <p>Kinesiologo</p>
                                         </div>
                                         <div className="caja-input">
                                             <input type="text" placeholder="Indicaciones Medicas" />
@@ -253,9 +247,8 @@ useEffect(() => {
                                         <div className="caja-input">
                                             <input type="text" placeholder="Devolucion al familiar" />
                                         </div>
-                                        <div className="caja-input">
+                                        <div className="caja-input-boton">
                                         <Buttons onClick={handleCrear} />
-                                        <input type="submit" value="Enviar" />
                                         </div>
                                     </div>
                                 </form>
@@ -273,7 +266,7 @@ useEffect(() => {
                     : <div className="a">{Sinopsis}</div> // Show Sinopsis content
                     }                    
                     <div className="medico-cabecera">
-                     <Buttons onClick={handleVer} className="boton-familia"/>
+                     <Buttons onClick={handleVer} className="boton-familia" placeholder="Ver informacion"/>
                     </div>
                     </div>
                         </div>

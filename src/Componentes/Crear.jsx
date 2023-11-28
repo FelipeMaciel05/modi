@@ -101,10 +101,11 @@ function CrearGrupo() {
                 <p for="ticketNum">Psicologos:</p>
                 <input id="psicologo" type="number" name="ticketNum" placeholder="0" min="0" max="3" />
               </div>
-              <button type="submit" >Crear Grupo</button>
+              <div className="caja-input-boton">
+              <Buttons onClick={HandleCreacion}/>
+              </div>
             </form>
           </div>
-          <Buttons onClick={HandleCreacion}/>
         </div>
       </body>
     </html>

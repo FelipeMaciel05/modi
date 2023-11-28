@@ -44,15 +44,14 @@ form .form-de-grupo-creado{
     border-bottom: .4vh solid black;
 }
 .enfermera input[type="submit"], .kinesiologo input[type="submit"], .medico-cabecera input[type="submit"], .psicologo input[type="submit"], .boton-familia{
+  width: 15vh;
     height: 6vh;
     border:0;
+    margin-top: 5vh;
     background: #72C9CD;
     color: white;
     border-radius: 5vh;
-}
-.enfermera input[type="submit"]:hover, .kinesiologo input[type="submit"]:hover, .medico-cabecera input[type="submit"]:hover, .psicologo input[type="submit"]:hover{
-    scale: 1.1;
-    transition: .2s;
+    text-align: center;
 }
 .caja-checkbox{
     display: flex;
@@ -77,11 +76,12 @@ form .form-de-grupo-creado{
     flex-direction: column;
     align-items: center;
 }
-.boton-familia{
-    width: 100%;
+.caja-input-boton{
+    width: 15vh;
     height: 6vh;
     border:0;
     background: #72C9CD;
     color: white;
     border-radius: 5vh;
+    text-align: center;
 }
