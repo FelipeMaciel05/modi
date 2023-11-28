@@ -33,14 +33,15 @@ function CrearGrupo() {
       Contra: ContraGrupo,
       Dni: DNI,
     };
-    // Enviar los datos al backend utilizando Fetch
+    console.log(data);
+    // Enviar los datos al backend utilizando Fetch 
     fetch('http://localhost:9000/api/CrearGrupo', {
       method: "POST",
-      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer " + token
-      }
+      },
+      body: JSON.stringify(data)
     })
       .then(function (response) {
         if (response.ok) {

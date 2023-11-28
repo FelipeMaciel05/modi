@@ -7,12 +7,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function Grupo() {
-    const [EsMedico, setEsMedico] = useState(null);
+    const [EsMedico, setEsMedico] = useState(false);
     const [Sinopsis, setSinopsis] = useState("Loading...");
     const [token, setToken] = useState('');
     useEffect(() => {
-        handleCheckMedic();
-    }, []); 
+        handleCheckMedic();     
+    }, [EsMedico]); 
 
     useEffect(() => {
         // Read the token from the cookie when the component mounts
@@ -20,10 +20,7 @@ function Grupo() {
         if (authToken) {
             setToken(authToken);
         }
-    }, []);
-    useEffect(() => {
-        console.log("EsMedico has changed:", EsMedico);
-    }, [EsMedico]); 
+    }, []); 
     useEffect(() => {
         console.log("Sinopsis has changed:", Sinopsis);
     }, [Sinopsis]); 
@@ -41,7 +38,7 @@ function Grupo() {
         var data = {
             Diagnostico: DiagnosticoP,
             EstudioA: EstudioAux,
-            IndicacionesM: IndicacionesMed,
+            IndicacionesM: IndicacionesMed, 
             IndicacionesE: IndicacionesEnf,
             Evolucion: EvolucionP,
             Devolucion: DevolucionP,
@@ -85,7 +82,7 @@ function Grupo() {
     const handleVer = (event) => {
         event.preventDefault();
         // Enviar los datos al backend utilizando Fetch
-        fetch('http://localhost:9000/api/InfoGrupo', {
+        fetch('http://localhost:9000/InfoGrupo', {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -100,7 +97,7 @@ function Grupo() {
             }
         })
         .then(data => {
-            setSinopsis(data.sinopsis || "No synopsis available");
+            setSinopsis(data.sinopsis);
         })
         .catch(error => {
             console.error('Fetch error:', error);
@@ -115,8 +112,9 @@ function Grupo() {
             if (authToken) {
                 setToken(authToken);
             }
-        }, []);
-       
+        }, [token]);
+        
+
         };  
         const handleCheckMedic = () => {
             // Enviar los datos al backend utilizando Fetch
@@ -137,17 +135,21 @@ function Grupo() {
             .then(data => {
                 // Log the parsed data
                 console.log(data);
-                const EsMedicoValue = data.queEs;
-                setEsMedico(EsMedicoValue);
+                setEsMedico(data.queEs);
             })
             .catch(error => {
                 console.error('Fetch error:', error);
             }); 
 } 
+  
+useEffect(() => {
+    console.log("EsMedico has changed:", EsMedico);
+}, [EsMedico]);
+
     return(
         <html lang="en">
         <head>
-            <meta charset="UTF-8" />
+            <meta charset="UTF-8" /> 
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>Grupo</title>
@@ -163,7 +165,7 @@ function Grupo() {
                 <div className="caja-medicos-total">
 
                 {EsMedico ? (
-                <>
+                <> 
                 <div className="primero">
                     <div className="caja-medico-cabecera">
                         <form method="post" className="form-de-grupo-creado">
@@ -261,16 +263,22 @@ function Grupo() {
                         </div>
                     </>): 
                     (
-                    <>
-                    <h1>sos familiar unu</h1>
+                    <> 
+                    <div className="primero">
+                        <div className="general">
+                        <div className="texto-familia"><p>Sos familiar</p></div>
                     {
                     Sinopsis === "Loading..."
                     ? <div>Loading information...</div>  // Show loading message
                     : <div className="a">{Sinopsis}</div> // Show Sinopsis content
                     }                    
                     <div className="medico-cabecera">
-                     <Buttons onClick={handleVer} />
+                     <Buttons onClick={handleVer} className="boton-familia"/>
                     </div>
+                    </div>
+                        </div>
+                    
+                    
                     </>
                     )}
                     
