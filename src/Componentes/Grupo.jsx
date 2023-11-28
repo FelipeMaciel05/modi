@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 function Grupo() {
     const [EsMedico, setEsMedico] = useState(null);
-    const [Sinopsis, setSinopsis] = useState(null);
+    const [Sinopsis, setSinopsis] = useState("Loading...");
     const [token, setToken] = useState('');
     useEffect(() => {
         handleCheckMedic();
@@ -23,17 +23,20 @@ function Grupo() {
     }, []);
     useEffect(() => {
         console.log("EsMedico has changed:", EsMedico);
-    }, [EsMedico]);
-    const handleCrear = (event) => {
-        event.preventDefault();
+    }, [EsMedico]); 
+    useEffect(() => {
+        console.log("Sinopsis has changed:", Sinopsis);
+    }, [Sinopsis]); 
+    const handleCrear = (event) => { 
+        event.preventDefault(); 
         // Obtener los valores de los campos del formulario
         var DiagnosticoP = document.getElementById("DP").value;
         var EstudioAux = document.getElementById("EA").value;
-        var IndicacionesMed = document.getElementById("IM").value;
+        var IndicacionesMed = document.getElementById("IM").value; 
         var IndicacionesEnf = document.getElementById("IE").value;
         var EvolucionP = document.getElementById("E").value;
         var DevolucionP = document.getElementById("D").value;
-
+ 
         // Crear un objeto con los datos a enviar al backend
         var data = {
             Diagnostico: DiagnosticoP,
@@ -89,21 +92,20 @@ function Grupo() {
                 "Authorization": "Bearer " + token
             }
         })
-            .then(function (response) {
-                if (response.ok) {
-                    return response.json()
-                } 
-                    else {
-                    alert("No se a podido ver");
-                }
-            })
-            .then(data => {
-                // Log the parsed data
-                const SinopsisValue = data.sinopsis;
-                setSinopsis(SinopsisValue);
-            });
-    };
-
+        .then(function (response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch');
+            }
+        })
+        .then(data => {
+            setSinopsis(data.sinopsis || "No synopsis available");
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            setSinopsis("Error loading data");
+        });}
     function CheckMedic() {
         const [token, setToken] = useState('');
 
@@ -153,7 +155,7 @@ function Grupo() {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=REM&display=swap" rel="stylesheet" />
         </head>
-        <body>
+        <body>  
             <Header />
         
 
@@ -261,6 +263,11 @@ function Grupo() {
                     (
                     <>
                     <h1>sos familiar unu</h1>
+                    {
+                    Sinopsis === "Loading..."
+                    ? <div>Loading information...</div>  // Show loading message
+                    : <div className="a">{Sinopsis}</div> // Show Sinopsis content
+                    }                    
                     <div className="medico-cabecera">
                      <Buttons onClick={handleVer} />
                     </div>
